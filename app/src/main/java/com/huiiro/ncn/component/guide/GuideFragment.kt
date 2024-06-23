@@ -10,12 +10,6 @@ import com.huiiro.ncn.databinding.GuideFragmentViewpagerBinding
  */
 class GuideFragment : BaseViewModelFragment<GuideFragmentViewpagerBinding>() {
 
-    override fun initDatum() {
-        super.initDatum()
-        val data = requireArguments().getInt(Constant.GUIDE_LOGO)
-        binding.guideLogo.setImageResource(data)
-    }
-
     companion object {
         fun newInstance(data: Int): GuideFragment {
             val args = Bundle()
@@ -25,5 +19,11 @@ class GuideFragment : BaseViewModelFragment<GuideFragmentViewpagerBinding>() {
             fragment.arguments = args
             return fragment
         }
+    }
+
+    override fun initDatum() {
+        super.initDatum()
+        val data = requireArguments().getInt(Constant.GUIDE_LOGO)
+        binding.guideLogo.setImageResource(data)
     }
 }

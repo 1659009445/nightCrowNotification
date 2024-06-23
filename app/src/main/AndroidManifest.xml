@@ -61,6 +61,17 @@
             android:name=".MainActivity"
             android:exported="false" />
 
+        <!--Alarm-->
+        <activity
+            android:name=".component.alarm.AlarmDialogActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert" />
+
+        <service
+            android:name=".service.ForegroundAlarmService"
+            android:exported="false" />
+
+
         <service
             android:name=".service.ForegroundService"
             android:foregroundServiceType="remoteMessaging"
@@ -73,6 +84,8 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".service.receiver.StopBackgroundAlarmReceiver" />
+
     </application>
 
 </manifest>

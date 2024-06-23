@@ -12,23 +12,7 @@ class DigitalTokenFragment : BaseViewModelFragment<IndexContentDigitalTokenBindi
 
     private lateinit var viewModel: DigitalTokenViewModel
 
-    override fun initDatum() {
-        super.initDatum()
-
-        viewModel = ViewModelProvider(this)[DigitalTokenViewModel::class.java]
-
-        lifecycleScope.launch {
-            viewModel.data.collect {
-
-            }
-        }
-
-        viewModel.loadData()
-
-    }
-
     companion object {
-
         fun newInstance(categoryId: String? = null): DigitalTokenFragment {
             val args = Bundle()
 
@@ -38,5 +22,16 @@ class DigitalTokenFragment : BaseViewModelFragment<IndexContentDigitalTokenBindi
             fragment.arguments = args
             return fragment
         }
+    }
+
+    override fun initDatum() {
+        super.initDatum()
+        viewModel = ViewModelProvider(this)[DigitalTokenViewModel::class.java]
+        lifecycleScope.launch {
+            viewModel.data.collect {
+
+            }
+        }
+        viewModel.loadData()
     }
 }

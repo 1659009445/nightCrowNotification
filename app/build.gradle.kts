@@ -114,6 +114,10 @@ dependencies {
     //worker
     implementation(libs.work.runtime)
 
+    //coroutines
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
+
     // gms firebase
     // implementation(platform(libs.firebase.bom))
     // implementation(libs.firebase.analytics)

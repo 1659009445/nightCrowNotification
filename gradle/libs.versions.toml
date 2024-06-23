@@ -19,6 +19,7 @@ circleindicator = "2.1.6"
 gson = "2.10.1"
 dslTab = "3.5.5"
 work = "2.8.1"
+coroutines = "1.7.1"
 firebaseBom = "33.1.1"
 
 [libraries]
@@ -62,9 +63,13 @@ dsl-tab-layout = { group = "com.github.angcyo.DslTablayout", name = "TabLayout",
 dsl-tab-viewpager = { group = "com.github.angcyo.DslTablayout", name = "ViewPager2Delegate", version.ref = "dslTab" }
 #worker
 work-runtime = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work" }
+#coroutines
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 #firebase
 #firebase-bom = { group = "com.google.firebase:firebase-bom", name = "firebase-bom", version.ref = "firebaseBom" }
 #firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+
 #example
 #= { group = "", name = "", version.ref = "" }
 

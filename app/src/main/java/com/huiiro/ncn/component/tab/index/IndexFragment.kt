@@ -11,14 +11,6 @@ import com.huiiro.ncn.domain.common.Category
  */
 class IndexFragment : BaseViewModelFragment<IndexFragmentBinding>() {
 
-    override fun initDatum() {
-        super.initDatum()
-        binding.apply {
-            pager.adapter = IndexAdapter(requireActivity(), indexIndicatorCategories)
-            TabLayoutViewPager2Mediator(indicator, pager) { _, _ -> }.attach()
-        }
-    }
-
     companion object {
         private val indexIndicatorCategories: List<Category> = listOf(
             Category.create("1", "  铸造鸦币  "),
@@ -36,6 +28,14 @@ class IndexFragment : BaseViewModelFragment<IndexFragmentBinding>() {
             val fragment = IndexFragment()
             fragment.arguments = args
             return fragment
+        }
+    }
+
+    override fun initDatum() {
+        super.initDatum()
+        binding.apply {
+            pager.adapter = IndexAdapter(requireActivity(), indexIndicatorCategories)
+            TabLayoutViewPager2Mediator(indicator, pager) { _, _ -> }.attach()
         }
     }
 }

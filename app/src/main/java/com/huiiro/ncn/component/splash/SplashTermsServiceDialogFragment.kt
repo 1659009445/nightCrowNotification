@@ -24,6 +24,17 @@ class SplashTermsServiceDialogFragment : BaseCommonDialogFragment() {
     private lateinit var agreeView: TextView
     private lateinit var disagreeView: TextView
 
+    /**
+     * 加载对话框
+     */
+    companion object {
+        fun show(fragmentManager: FragmentManager, onClickAgreeEvent: View.OnClickListener) {
+            val dialogFragment = SplashTermsServiceDialogFragment()
+            dialogFragment.onClickAgree = onClickAgreeEvent
+            dialogFragment.show(fragmentManager, "SplashTermsServiceDialogFragment")
+        }
+    }
+
     override fun initViewData() {
         super.initViewData()
 
@@ -82,16 +93,5 @@ class SplashTermsServiceDialogFragment : BaseCommonDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.splash_fragment_privacy, container, false)
-    }
-
-    /**
-     * 加载对话框
-     */
-    companion object {
-        fun show(fragmentManager: FragmentManager, onClickAgreeEvent: View.OnClickListener) {
-            val dialogFragment = SplashTermsServiceDialogFragment()
-            dialogFragment.onClickAgree = onClickAgreeEvent
-            dialogFragment.show(fragmentManager, "SplashTermsServiceDialogFragment")
-        }
     }
 }

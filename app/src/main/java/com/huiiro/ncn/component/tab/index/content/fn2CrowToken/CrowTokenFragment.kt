@@ -12,22 +12,7 @@ class CrowTokenFragment : BaseViewModelFragment<IndexContentCrowTokenBinding>() 
 
     private lateinit var viewModel: TokenCrowViewModel
 
-    override fun initDatum() {
-        super.initDatum()
-
-        viewModel = ViewModelProvider(this)[TokenCrowViewModel::class.java]
-
-        lifecycleScope.launch {
-            viewModel.data.collect {
-
-            }
-        }
-
-        viewModel.loadData()
-    }
-
     companion object {
-
         fun newInstance(categoryId: String? = null): CrowTokenFragment {
             val args = Bundle()
 
@@ -37,5 +22,16 @@ class CrowTokenFragment : BaseViewModelFragment<IndexContentCrowTokenBinding>() 
             fragment.arguments = args
             return fragment
         }
+    }
+
+    override fun initDatum() {
+        super.initDatum()
+        viewModel = ViewModelProvider(this)[TokenCrowViewModel::class.java]
+        lifecycleScope.launch {
+            viewModel.data.collect {
+
+            }
+        }
+        viewModel.loadData()
     }
 }

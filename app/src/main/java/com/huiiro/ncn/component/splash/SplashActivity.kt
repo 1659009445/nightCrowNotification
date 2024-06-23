@@ -100,7 +100,6 @@ class SplashActivity : BaseCommonActivity() {
             }
     }
 
-
     /**
      * 用户同意授权回调
      */

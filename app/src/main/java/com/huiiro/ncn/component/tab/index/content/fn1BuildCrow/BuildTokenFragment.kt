@@ -17,21 +17,44 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
 
     private lateinit var viewModel: BuildTokenViewModel
 
+    companion object {
+        fun newInstance(categoryId: String? = null): BuildTokenFragment {
+            val args = Bundle()
+
+            categoryId?.let { args.putString(Constant.ID, categoryId) }
+
+            val fragment = BuildTokenFragment()
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
     override fun initViewData() {
         super.initViewData()
         binding.swipeRefreshLayout.setOnRefreshListener { refreshData() }
     }
 
-    @SuppressLint("SetTextI18n")
     override fun initDatum() {
         super.initDatum()
+        writeDataView()
+    }
+
+    private fun refreshData() {
+        binding.swipeRefreshLayout.postDelayed({
+            binding.swipeRefreshLayout.isRefreshing = false
+            viewModel.loadData()
+            Toast.makeText(context, "已刷新", Toast.LENGTH_SHORT).show()
+        }, 1000)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun writeDataView() {
+        viewModel = ViewModelProvider(this)[BuildTokenViewModel::class.java]
 
         //write in mvc
         //lifecycleScope.launch { CrowRepository.crow() }
 
         //write in mvvm
-        viewModel = ViewModelProvider(this)[BuildTokenViewModel::class.java]
-
         lifecycleScope.launch {
             viewModel.data.collect { it ->
                 //更新时间
@@ -79,31 +102,9 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 val hourMaxValue = ComponentCrowPriceBinding.bind(binding.hourMaxPrice)
                 hourMaxValue.priceValue.text = "$ " + it.getData()?.hour_max_price.toString()
                 hourMaxValue.priceLabel.text = "最大值（\$）"
-
             }
         }
 
         viewModel.loadData()
-    }
-
-    private fun refreshData() {
-        binding.swipeRefreshLayout.postDelayed({
-            binding.swipeRefreshLayout.isRefreshing = false
-            viewModel.loadData()
-            Toast.makeText(context, "已刷新", Toast.LENGTH_LONG).show()
-        }, 1000)
-    }
-
-    companion object {
-
-        fun newInstance(categoryId: String? = null): BuildTokenFragment {
-            val args = Bundle()
-
-            categoryId?.let { args.putString(Constant.ID, categoryId) }
-
-            val fragment = BuildTokenFragment()
-            fragment.arguments = args
-            return fragment
-        }
     }
 }

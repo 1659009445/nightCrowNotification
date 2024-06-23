@@ -13,6 +13,10 @@ class GuideActivity : BaseViewModelActivity<GuideActivityBinding>() {
 
     private lateinit var adapter: GuideAdapter
 
+    companion object {
+        private const val TAG = "GuideActivity"
+    }
+
     override fun initDatum() {
         super.initDatum()
 
@@ -36,7 +40,7 @@ class GuideActivity : BaseViewModelActivity<GuideActivityBinding>() {
         super.initListener()
         //登录或注册按钮
         binding.guideLoginBtn.setOnClickListener {
-            Log.d("GuideActivity", "initListener: login btn ")
+            Log.d(TAG, "initListener: user click login btn ")
             setShowGuide()
             val intent = Intent(this, AppActivity::class.java)
             intent.action = Constant.ACTION_LOGIN
@@ -45,7 +49,7 @@ class GuideActivity : BaseViewModelActivity<GuideActivityBinding>() {
         }
         //开启体验按钮
         binding.guideExperienceBtn.setOnClickListener {
-            Log.d("GuideActivity", "initListener: experience btn ")
+            Log.d(TAG, "initListener: user click experience btn ")
             setShowGuide()
             startActivityAfterFinishThisActivity(AppActivity::class.java)
         }

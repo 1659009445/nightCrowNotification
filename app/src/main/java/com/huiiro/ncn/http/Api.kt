@@ -23,4 +23,9 @@ object Api {
      * notice info
      */
     const val NOTICE_INFO = "crow/api/notice"
+
+    /**
+     * crow warning
+     */
+    const val CROW_WARNING = "crow/api/warning"
 }

@@ -1,6 +1,7 @@
 package com.huiiro.ncn.http.service
 
 import com.huiiro.ncn.domain.CrowEntity
+import com.huiiro.ncn.domain.CrowWarningEntity
 import com.huiiro.ncn.domain.NoticeEntity
 import com.huiiro.ncn.domain.TokenEntity
 import com.huiiro.ncn.domain.WemixEntity
@@ -22,6 +23,9 @@ interface ICrowService {
 
     @GET(Api.NOTICE_INFO)
     suspend fun notice(): Response<NoticeEntity>
+
+    @GET(Api.CROW_WARNING)
+    suspend fun crowWarning(): Response<CrowWarningEntity>
 
     companion object {
         fun create(): ICrowService {
