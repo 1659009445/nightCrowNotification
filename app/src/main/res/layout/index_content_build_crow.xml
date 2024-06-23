@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_shader_light"
+            android:orientation="vertical">
+
+            <!--统计时间段-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center"
+                    android:text="@string/count_time"
+                    android:textColor="@color/deep_grey"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/count_time"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/defaultTime"
+                    android:textColor="@color/deep_grey"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <!--货币精确价值-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/image_desc"
+                    android:src="@drawable/res_pic_token_crow_3d" />
+
+                <TextView
+                    android:id="@+id/day_actual_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/defaultVolume"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <!--分割线-->
+            <include layout="@layout/component_divider_horizontal" />
+
+            <!--货币每日价值-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/day_crow_price"
+                android:textColor="@color/deep_grey_2"
+                android:textSize="16sp" />
+
+            <!--分割线-->
+            <include layout="@layout/component_divider_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/day_min_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/component_crow_price" />
+
+                </LinearLayout>
+
+                <include layout="@layout/component_divider_vertical" />
+
+                <LinearLayout
+                    android:id="@+id/day_avg_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/component_crow_price" />
+
+                </LinearLayout>
+
+                <include layout="@layout/component_divider_vertical" />
+
+                <LinearLayout
+                    android:id="@+id/day_max_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/component_crow_price" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--分割线-->
+            <include layout="@layout/component_divider_horizontal" />
+
+
+            <!--小时每日价值-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/hour_crow_price"
+                android:textColor="@color/deep_grey_2"
+                android:textSize="16sp" />
+
+            <!--分割线-->
+            <include layout="@layout/component_divider_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/hour_min_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/component_crow_price" />
+
+                </LinearLayout>
+
+                <include layout="@layout/component_divider_vertical" />
+
+                <LinearLayout
+                    android:id="@+id/hour_avg_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/component_crow_price" />
+
+                </LinearLayout>
+
+                <include layout="@layout/component_divider_vertical" />
+
+                <LinearLayout
+                    android:id="@+id/hour_max_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/component_crow_price" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--分割线-->
+            <include layout="@layout/component_divider_horizontal" />
+
+            <!--更新时间-->
+            <TextView
+                android:id="@+id/update_time"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="@string/update_time"
+                android:textColor="@color/deep_grey"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

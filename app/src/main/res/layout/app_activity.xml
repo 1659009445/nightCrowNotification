@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <include layout="@layout/component_divider_horizontal" />
+
+    <com.angcyo.tablayout.DslTabLayout
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:tab_convex_background="@color/white"
+        app:tab_default_index="0"
+        app:tab_deselect_color="@color/select"
+        app:tab_draw_badge="true"
+        app:tab_icon_view_id="@id/content"
+        app:tab_indicator_color="@color/select"
+        app:tab_indicator_height="3dp"
+        app:tab_item_is_equ_width="true"
+        app:tab_select_color="@color/primary"
+        app:tab_text_view_id="@id/content" />
+
+</LinearLayout>

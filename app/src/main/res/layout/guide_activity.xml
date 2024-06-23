@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--轮播图-->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/guide_viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!--指示器-->
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/guide_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        app:ci_drawable="@drawable/shape_color_primary"
+        app:ci_drawable_unselected="@drawable/shape_color_grey"
+        />
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/guide_login_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_primary_drawable"
+            android:text="@string/login_or_register"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/guide_experience_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_sub_drawable"
+            android:text="@string/experience"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+</LinearLayout>

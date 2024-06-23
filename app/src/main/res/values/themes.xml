@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--原版主题 你必须使用这个才能启动项目-->
+    <style name="Theme.Ncn" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">#fff</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!--自定义三方主题 使用该主题无法启动-->
+    <style name="Theme.LightStyle" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#fff</item>
+    </style>
+
+    <!--custom tab style-->
+    <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/privacy_title"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/splash_privacy_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.2"
+            android:text="@string/privacy_content"
+            android:textColorHint="@android:color/black"
+            android:textSize="15sp" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/splash_privacy_agree"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_primary_drawable"
+        android:text="@string/agree"
+        android:textColor="@android:color/white" />
+
+
+    <Button
+        android:id="@+id/splash_privacy_disagree"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/qmui_s_transparent"
+        android:text="@string/disagree_exit"
+        android:textColor="@color/deep_grey"
+        android:textSize="12sp" />
+
+</LinearLayout>

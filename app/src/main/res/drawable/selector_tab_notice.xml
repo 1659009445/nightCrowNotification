@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/res_pic_tab_notice_selected" android:state_accelerated="true" />
+    <item android:drawable="@drawable/res_pic_tab_notice_default" />
+</selector>

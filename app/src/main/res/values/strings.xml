@@ -1,0 +1,61 @@
+<resources>
+    <string name="test">test content 1 2 3 @ $ # ! ?</string>
+
+    <string name="app_name">NightCrowNotification</string>
+    <string name="image_desc">This is a description for a picture</string>
+    <string name="copy_right">Copyright © 2023 Huiiro. All Rights Reserved</string>
+    <string name="copy_desc">锅巴网络 荣誉出品</string>
+    <string name="privacy_title">服务条款和隐私协议提示</string>
+    <string name="privacy_content">
+        <Data>
+            <h1>服务协议</h1>
+            <h2>1. 概述</h2>
+            <p>欢迎使用我们的服务。使用本服务即表示您同意遵守以下条款和条件。请仔细阅读本协议。</p>
+            <h2>2. 服务内容</h2>
+            <p>本服务包括但不限于以下内容：......（请具体描述您的服务内容）</p>
+            <h2>3. 用户责任</h2>
+            <p>用户在使用本服务时应遵守相关法律法规，不得利用本服务进行任何违法活动。</p>
+            <h2>4. 账户安全</h2>
+            <p>用户有责任维护账户和密码的安全，因用户原因导致的账户被盗或信息泄露，本公司不承担任何责任。</p>
+            <h2>5. 服务中断</h2>
+            <p>本公司保留在不通知用户的情况下中断或终止部分或全部服务的权利。</p>
+            <h2>6. 免责声明</h2>
+            <p>本公司对用户使用服务所产生的任何直接、间接、偶然、特殊及继起的损害不承担责任。</p>
+            <h2>7. 修改条款</h2>
+            <p>本公司保留随时修改本服务条款的权利，修改后的条款一经公布即有效代替原条款。</p>
+        </Data>
+    </string>
+
+    <string name="layout_index">首页</string>
+    <string name="layout_notice">资讯</string>
+    <string name="layout_more">更多</string>
+    <string name="layout_my">我的</string>
+    <string name="layout_content">内容</string>
+    <string name="layout_title_index">鸦币小助手</string>
+    <string name="layout_title_notice">官网咨询</string>
+    <string name="layout_title_more">更多功能</string>
+
+    <string name="layout_index_fn_1_build_crow">铸造鸦币</string>
+    <string name="layout_index_fn_2_crow_token">游戏货币</string>
+    <string name="layout_index_fn_3_digital_token">数字货币</string>
+
+    <string name="login">登录</string>
+    <string name="logout">退出登录</string>
+    <string name="sign_up">注册</string>
+    <string name="login_or_register">登录或注册</string>
+    <string name="experience">开始体验</string>
+
+    <string name="agree">同意</string>
+    <string name="disagree_exit">不同意并退出</string>
+
+    <string name="defaultVolume">0.0</string>
+    <string name="defaultTime">00:00:00</string>
+    <string name="maxVolume">最大值</string>
+    <string name="minVolume">最小值</string>
+    <string name="avgVolume">平均值</string>
+    <string name="count_time">统计时间</string>
+    <string name="update_time">更新时间</string>
+    <string name="day_crow_price">24小时内实时币价：</string>
+    <string name="hour_crow_price">1小时内实时币价：</string>
+
+</resources>
