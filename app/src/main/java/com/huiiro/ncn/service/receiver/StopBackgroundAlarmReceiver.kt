@@ -16,11 +16,20 @@ class StopBackgroundAlarmReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         Log.d(TAG, "Stop alarm button clicked")
+        val action = intent?.getStringExtra("action")
+        Log.d(TAG, "onReceive: $action")
         context?.let {
+            when (action) {
+                "stop_once" -> {
+                    // 停止播放音乐一次
+                    AlarmReceiver().stopAlarmSound()
+                }
 
-            //停止播放音乐
-            AlarmReceiver().stopAlarmSound()
-
+                "stop_forever" -> {
+                    // 永久停止播放音乐
+                    AlarmReceiver().stopAlarmSoundForever()
+                }
+            }
             // 停止前台服务
             //it.stopService(Intent(it, ForegroundService::class.java))
         }

@@ -4,6 +4,8 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import android.util.Log
+import com.huiiro.ncn.service.ForegroundService
+import com.huiiro.ncn.util.MMKVPreferenceUtils
 import com.tencent.mmkv.MMKV
 
 /**
@@ -15,6 +17,7 @@ class AppContext : Application(), Application.ActivityLifecycleCallbacks {
     private var isActivityChangingConfigurations = false
 
     companion object {
+        private const val TAG = "AppContext"
         lateinit var instance: AppContext
         var isAppInForeground = false
             private set
@@ -25,6 +28,9 @@ class AppContext : Application(), Application.ActivityLifecycleCallbacks {
         registerActivityLifecycleCallbacks(this)
         instance = this
         initMMKV()
+        //每次启动重置该提醒功能
+        MMKVPreferenceUtils.setUserCloseAlarm(false)
+        Log.d(TAG, "onCreate: set user close alarm: ${MMKVPreferenceUtils.isUserCloseAlarm()}")
     }
 
     /**

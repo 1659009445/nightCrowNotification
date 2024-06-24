@@ -3,9 +3,8 @@ package com.huiiro.ncn.component.splash
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
-import android.widget.TextView
-import com.huiiro.ncn.R
-import com.huiiro.ncn.base.activity.BaseCommonActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.huiiro.ncn.base.activity.BaseViewModelActivity
 import com.huiiro.ncn.component.app.AppActivity
 import com.huiiro.ncn.component.guide.GuideActivity
 import com.huiiro.ncn.databinding.SplashActivityBinding
@@ -16,15 +15,12 @@ import com.permissionx.guolindev.PermissionX
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivity : BaseCommonActivity() {
-
-    private lateinit var copyRight: TextView
-    private lateinit var copyDesc: TextView
-    private lateinit var binding: SplashActivityBinding
+class SplashActivity : BaseViewModelActivity<SplashActivityBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //using this to load custom splash screen
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-        binding = SplashActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
@@ -37,18 +33,10 @@ class SplashActivity : BaseCommonActivity() {
             QMUIStatusBarHelper.setStatusBarDarkMode(this)
         else
             QMUIStatusBarHelper.setStatusBarLightMode(this)
-
-        //获取版权信息
-        copyRight = findViewById(R.id.copy_right)
-        copyDesc = findViewById(R.id.copy_desc)
     }
 
     @SuppressLint("SetTextI18n")
     override fun initDatum() {
-        //设置版权信息
-        copyRight.text = "锅巴网络 荣誉出品"
-        copyDesc.text = "Copyright © 2023 Huiiro. All Rights Reserved"
-
         //设置服务条款对话框
         if (PreferenceUtils.getInstance(this).isUserAgreePrivacyTerms) {
             //获取应用必须权限

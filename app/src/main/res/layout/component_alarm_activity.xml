@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AlarmDialogTheme"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_dialog_common"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp">
@@ -10,15 +11,50 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="警报"
-        android:textSize="20sp"
+        android:text="@string/crow_warning_title"
+        android:textColor="@color/black"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/stopAlarmButton"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/crow_warning_text"
+        android:textColor="@color/deep_grey_2"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="停止" />
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/stopAlarmButtonOnce"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_danger_drawable"
+            android:text="@string/crow_warning_close_once"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/stopAlarmButtonForever"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_danger_drawable"
+            android:text="@string/crow_warning_close_forever"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
 
 </LinearLayout>

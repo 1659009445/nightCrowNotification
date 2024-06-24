@@ -47,6 +47,7 @@ class GuideActivity : BaseViewModelActivity<GuideActivityBinding>() {
             startActivity(intent)
             finish()
         }
+
         //开启体验按钮
         binding.guideExperienceBtn.setOnClickListener {
             Log.d(TAG, "initListener: user click experience btn ")

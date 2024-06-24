@@ -34,7 +34,6 @@ class AppActivity : BaseViewModelActivity<AppActivityBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         //开启后台服务
         Intent(this, ForegroundService::class.java).also { intent ->
             startForegroundService(intent)
@@ -69,5 +68,4 @@ class AppActivity : BaseViewModelActivity<AppActivityBinding>() {
             startActivity(LoginActivity::class.java)
         }
     }
-
 }

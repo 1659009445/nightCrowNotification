@@ -48,7 +48,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="15dp"
             android:contentDescription="@string/image_desc"
-            android:src="@drawable/res_pic_guide1" />
+            android:src="@drawable/res_pic_tab_menu" />
     </LinearLayout>
 
     <View

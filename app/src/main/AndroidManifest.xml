@@ -17,16 +17,16 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:exported="true"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/res_logo_app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/res_logo_app_icon_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ncn"
-        tools:targetApi="31">
+        android:theme="@style/Theme.Ncn">
         <!--Splash-->
         <activity
             android:name=".component.splash.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -56,22 +56,15 @@
         <activity
             android:name=".component.login.LoginActivity"
             android:exported="false" />
-        <!--Main_Default-->
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-
         <!--Alarm-->
         <activity
             android:name=".component.alarm.AlarmDialogActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.Dialog.Alert" />
+            android:theme="@style/AlarmDialogTheme" />
 
         <service
             android:name=".service.ForegroundAlarmService"
             android:exported="false" />
-
-
         <service
             android:name=".service.ForegroundService"
             android:foregroundServiceType="remoteMessaging"
@@ -85,6 +78,7 @@
             </intent-filter>
         </receiver>
         <receiver android:name=".service.receiver.StopBackgroundAlarmReceiver" />
+        <receiver android:name=".service.receiver.NotificationDismissedReceiver" />
 
     </application>
 

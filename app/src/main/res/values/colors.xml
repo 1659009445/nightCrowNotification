@@ -13,6 +13,7 @@
     <color name="second">#EFFDFF</color>
     <color name="agree">#03AFC5</color>
     <color name="deny">#E40000</color>
+    <color name="danger">#D93A3A</color>
     <color name="warning">#A8810C</color>
     <color name="select">#ABABAB</color>
     <color name="light_grey">#F0F0F0</color>

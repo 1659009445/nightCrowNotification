@@ -20,6 +20,7 @@ gson = "2.10.1"
 dslTab = "3.5.5"
 work = "2.8.1"
 coroutines = "1.7.1"
+splashccreen = "1.0.0"
 firebaseBom = "33.1.1"
 
 [libraries]
@@ -69,6 +70,8 @@ coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutin
 #firebase
 #firebase-bom = { group = "com.google.firebase:firebase-bom", name = "firebase-bom", version.ref = "firebaseBom" }
 #firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+#splashccreen
+splashccreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashccreen" }
 
 #example
 #= { group = "", name = "", version.ref = "" }

@@ -16,8 +16,10 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.huiiro.ncn.R
 import com.huiiro.ncn.service.receiver.AlarmReceiver
+import com.huiiro.ncn.service.receiver.NotificationDismissedReceiver
 import com.huiiro.ncn.service.receiver.StopBackgroundAlarmReceiver
 import com.huiiro.ncn.service.worker.CheckCrowWorker
+import com.huiiro.ncn.util.TimeUtils
 import java.util.concurrent.TimeUnit
 
 /**
@@ -47,23 +49,56 @@ class ForegroundService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.d(TAG, "onStartCommand: onStartCommand")
         return START_STICKY
     }
 
     private fun start() {
-        val stopIntent = Intent(this, StopBackgroundAlarmReceiver::class.java)
-        val stopPendingIntent = PendingIntent.getBroadcast(
+        Log.d(TAG, "start: enter start method")
+
+        //action for clear
+        val dismissIntent = Intent(this, NotificationDismissedReceiver::class.java).apply {
+            putExtra("notification_id", -1)
+        }
+        val dismissPendingIntent = PendingIntent.getBroadcast(
             this,
-            0,
-            stopIntent,
+            -1,
+            dismissIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        val notification = NotificationCompat.Builder(this, "huiiro_ncn_channel")
+        //action for stop once
+        val stopOnceIntent = Intent(this, StopBackgroundAlarmReceiver::class.java).apply {
+            putExtra("action", "stop_once")
+        }
+        val stopOncePendingIntent = PendingIntent.getBroadcast(
+            this,
+            0,
+            stopOnceIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        //action for stop forever
+        val stopForeverIntent = Intent(this, StopBackgroundAlarmReceiver::class.java).apply {
+            putExtra("action", "stop_forever")
+        }
+        val stopForeverPendingIntent = PendingIntent.getBroadcast(
+            this,
+            1,
+            stopForeverIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setOngoing(true)
+            .setSound(null)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("GB NightCrow Assistant")
             .setContentText("The Application is running...")
-            .addAction(R.drawable.ic_launcher_foreground, "Stop Alarm", stopPendingIntent)
+            .setDeleteIntent(dismissPendingIntent)
+            .addAction(R.drawable.ic_launcher_foreground, "Stop Once", stopOncePendingIntent)
+            .addAction(R.drawable.ic_launcher_foreground, "Stop Forever", stopForeverPendingIntent)
             .build()
 
         startForeground(1, notification)
@@ -94,11 +129,11 @@ class ForegroundService : Service() {
             PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         }
         //设置提醒时间
-        //val intervalMillis = 5 * 60 * 1000L
-        //val startTime = TimeUtils.getNext5MultipleTimeMillis()
-        val intervalMillis = 1 * 60 * 1000L
-        val startTime = System.currentTimeMillis()
-        Log.d(TAG, "startSchedule: ${startTime}")
+        val intervalMillis = 5 * 60 * 1000L
+        val startTime = TimeUtils.getNext5MultipleTimeMillis()
+        //val intervalMillis = 1 * 60 * 1000L
+        //val startTime = System.currentTimeMillis()
+        Log.d(TAG, "startSchedule: $startTime")
 
         //设置提醒事件
         //alarmManager.set(AlarmManager.RTC_WAKEUP, 1000, alarmIntent)

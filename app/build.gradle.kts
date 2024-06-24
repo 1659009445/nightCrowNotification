@@ -17,10 +17,10 @@ android {
 
     defaultConfig {
         applicationId = "com.huiiro.ncn"
-        minSdk = 27
+        minSdk = 31
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -117,6 +117,8 @@ dependencies {
     //coroutines
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
+
+    implementation(libs.splashccreen)
 
     // gms firebase
     // implementation(platform(libs.firebase.bom))
