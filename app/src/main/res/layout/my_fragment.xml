@@ -1,11 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!--title-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/layout_my" />
+        android:background="@color/primary"
+        android:gravity="center"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/layout_title_my"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!--context-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="15sp"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <!--账号管理功能-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40sp" />
+
+            <include layout="@layout/component_divider_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_margin="12sp"
+                android:text="@string/layout_title_settings_account"
+                android:textColor="@color/deep_grey_2"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <!--基本功能-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40sp" />
+
+            <include layout="@layout/component_divider_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_margin="12sp"
+                android:text="@string/layout_title_settings_basic"
+                android:textColor="@color/deep_grey_2"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/manage_notification"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="开启通知" />
+
+
+            <!--高级功能-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40sp" />
+
+            <include layout="@layout/component_divider_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_margin="12sp"
+                android:text="@string/layout_title_settings_advanced"
+                android:textColor="@color/deep_grey_2"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <!--更新日志-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40sp" />
+
+            <include layout="@layout/component_divider_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_margin="12sp"
+                android:text="@string/layout_title_settings_update_log"
+                android:textColor="@color/deep_grey_2"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <!--鸣谢-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40sp" />
+
+            <include layout="@layout/component_divider_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_margin="12sp"
+                android:text="@string/layout_title_settings_thanks"
+                android:textColor="@color/deep_grey_2"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="15sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 
 </LinearLayout>

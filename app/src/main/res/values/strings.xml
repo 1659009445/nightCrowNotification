@@ -28,6 +28,12 @@
     <string name="layout_title_index">鸦币小助手</string>
     <string name="layout_title_notice">官网咨询</string>
     <string name="layout_title_more">更多功能</string>
+    <string name="layout_title_my">个人中心</string>
+    <string name="layout_title_settings_account">账号管理</string>
+    <string name="layout_title_settings_basic">基本功能</string>
+    <string name="layout_title_settings_advanced">高级功能</string>
+    <string name="layout_title_settings_update_log">更新日志</string>
+    <string name="layout_title_settings_thanks">鸣谢</string>
 
     <string name="layout_index_fn_1_build_crow">铸造鸦币</string>
     <string name="layout_index_fn_2_crow_token">游戏货币</string>

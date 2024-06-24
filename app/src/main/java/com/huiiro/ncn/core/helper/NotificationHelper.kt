@@ -20,8 +20,14 @@ class NotificationHelper(private val context: Context) {
     private val notificationManager: NotificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
+    private var notificationStatus: Boolean = false
+
     init {
         registerNotification()
+    }
+
+    fun getNotificationStatus(): Boolean {
+        return notificationStatus
     }
 
     /**
@@ -82,18 +88,21 @@ class NotificationHelper(private val context: Context) {
         )
 
         //关闭Notification
-        val stopNotificationIntent = Intent(context, StopBackgroundAlarmReceiver::class.java).apply {
-            putExtra(
-                NotificationConstants.NOTIFICATION_ACTION_PARAM,
-                NotificationConstants.NOTIFICATION_ACTION_STOP_NOTIFICATION
-            )
-        }
+        val stopNotificationIntent =
+            Intent(context, StopBackgroundAlarmReceiver::class.java).apply {
+                putExtra(
+                    NotificationConstants.NOTIFICATION_ACTION_PARAM,
+                    NotificationConstants.NOTIFICATION_ACTION_STOP_NOTIFICATION
+                )
+            }
         val stopNotificationPendingIntent = PendingIntent.getBroadcast(
             context,
             1,
             stopNotificationIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
+
+        notificationStatus = true
 
         return NotificationCompat.Builder(context, NotificationConstants.CHANNEL_ID)
             .setOngoing(true)
@@ -106,7 +115,11 @@ class NotificationHelper(private val context: Context) {
             .setContentIntent(mainActivityPendingIntent)
             .addAction(R.drawable.ic_launcher_foreground, "Stop Once", stopOncePendingIntent)
             .addAction(R.drawable.ic_launcher_foreground, "Stop Forever", stopForeverPendingIntent)
-            .addAction(R.drawable.ic_launcher_foreground, "Stop Notification", stopNotificationPendingIntent)
+            .addAction(
+                R.drawable.ic_launcher_foreground,
+                "Stop Notification",
+                stopNotificationPendingIntent
+            )
             .build()
     }
 
@@ -116,5 +129,9 @@ class NotificationHelper(private val context: Context) {
     fun registerNotification() {
         val notification = createNotification()
         notificationManager.notify(1, notification)
+    }
+
+    fun destroyNotificationCallback() {
+        notificationStatus = false
     }
 }

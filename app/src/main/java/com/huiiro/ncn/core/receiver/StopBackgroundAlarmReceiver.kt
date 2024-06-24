@@ -6,12 +6,15 @@ import android.content.Intent
 import android.util.Log
 import com.huiiro.ncn.base.consts.NotificationConstants
 import com.huiiro.ncn.core.ForegroundService
+import com.huiiro.ncn.core.helper.NotificationHelper
 
 /**
  * 接收 用户 Action 行为 通知 |
  * 该方法会处理后台服务 Notification
  */
 class StopBackgroundAlarmReceiver : BroadcastReceiver() {
+
+    private lateinit var notificationHelper: NotificationHelper
 
     companion object {
         const val TAG = "AlarmService"
@@ -36,6 +39,7 @@ class StopBackgroundAlarmReceiver : BroadcastReceiver() {
                 // 停止前台服务
                 NotificationConstants.NOTIFICATION_ACTION_STOP_NOTIFICATION -> {
                     it.stopService(Intent(it, ForegroundService::class.java))
+                    notificationHelper.destroyNotificationCallback()
                 }
 
                 else -> {}
