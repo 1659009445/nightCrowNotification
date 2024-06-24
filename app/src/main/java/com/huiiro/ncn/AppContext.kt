@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import android.util.Log
-import com.huiiro.ncn.service.ForegroundService
 import com.huiiro.ncn.util.MMKVPreferenceUtils
 import com.tencent.mmkv.MMKV
 

@@ -63,22 +63,22 @@
             android:theme="@style/AlarmDialogTheme" />
 
         <service
-            android:name=".service.ForegroundAlarmService"
+            android:name=".core.ForegroundAlarmService"
             android:exported="false" />
         <service
-            android:name=".service.ForegroundService"
+            android:name=".core.ForegroundService"
             android:foregroundServiceType="remoteMessaging"
             tools:ignore="ForegroundServicePermission" />
 
         <receiver
-            android:name=".service.receiver.AlarmReceiver"
+            android:name=".core.receiver.AlarmReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".service.receiver.StopBackgroundAlarmReceiver" />
-        <receiver android:name=".service.receiver.NotificationDismissedReceiver" />
+        <receiver android:name=".core.receiver.StopBackgroundAlarmReceiver" />
+        <receiver android:name=".core.receiver.NotificationDismissedReceiver" />
 
     </application>
 

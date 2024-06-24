@@ -10,7 +10,7 @@ import com.huiiro.ncn.base.consts.Constant
 import com.huiiro.ncn.component.login.LoginActivity
 import com.huiiro.ncn.databinding.AppActivityBinding
 import com.huiiro.ncn.databinding.ComponentItemTabBinding
-import com.huiiro.ncn.service.ForegroundService
+import com.huiiro.ncn.core.ForegroundService
 
 class AppActivity : BaseViewModelActivity<AppActivityBinding>() {
 

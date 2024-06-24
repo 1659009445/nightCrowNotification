@@ -1,4 +1,4 @@
-package com.huiiro.ncn.service.worker
+package com.huiiro.ncn.core.worker
 
 import android.content.Context
 import android.util.Log
