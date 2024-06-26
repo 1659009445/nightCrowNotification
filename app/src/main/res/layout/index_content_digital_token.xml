@@ -3,9 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="page3" />
+        android:layout_gravity="center"
+        android:contentDescription="@string/image_desc"
+        android:src="@drawable/res_pic_token_wemix" />
 
 </LinearLayout>

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class TokenCrowViewModel : ViewModel() {
+class CrowTokenViewModel : ViewModel() {
 
     private val _data = MutableStateFlow(Response<List<TokenEntity>>())
     val data: StateFlow<Response<List<TokenEntity>>> get() = _data

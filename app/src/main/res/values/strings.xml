@@ -66,4 +66,10 @@
     <string name="crow_warning_text">检测到游戏内实时币价大于0.75，请合理安排铸币！</string>
     <string name="crow_warning_close_once">关闭一次</string>
     <string name="crow_warning_close_forever">不再提醒</string>
+
+    <string name="crow">CROW</string>
+    <string name="high">High</string>
+    <string name="low">Low</string>
+    <string name="volume">Volume</string>
+    <string name="volume_crow">Volume(CROW)</string>
 </resources>

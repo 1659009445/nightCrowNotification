@@ -14,7 +14,7 @@ class TokenEntity {
 
     var price_24h_percent: String? = null
 
-    var price_24h_changed: String? = null
+    var price_24h_changed: Double? = null
 
     var prev: Double? = null
 
@@ -29,5 +29,7 @@ class TokenEntity {
     var traded_volume_dollar: Double? = null
 
     var update_time: String? = null
+
+    var charts: List<TokenEntity> = emptyList()
 
 }

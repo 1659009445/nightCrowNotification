@@ -22,6 +22,8 @@ work = "2.8.1"
 coroutines = "1.7.1"
 splashccreen = "1.0.0"
 mp-android-chart = "3.1.0"
+cymchad = "4.1.4"
+glide = "4.15.1"
 firebaseBom = "33.1.1"
 
 [libraries]
@@ -72,6 +74,10 @@ coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutin
 splashccreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashccreen" }
 #mp-chart
 mp-android-chart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mp-android-chart" }
+#base-recycler
+cymchad = { group = "io.github.cymchad", name = "BaseRecyclerViewAdapterHelper4", version.ref = "cymchad" }
+#web-image
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 #firebase
 #firebase-bom = { group = "com.google.firebase:firebase-bom", name = "firebase-bom", version.ref = "firebaseBom" }
 #firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }

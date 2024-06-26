@@ -121,8 +121,14 @@ dependencies {
     //splash
     implementation(libs.splashccreen)
 
-    //
+    //chart
     implementation(libs.mp.android.chart)
+
+    //viewAdapter
+    implementation(libs.cymchad)
+
+    //web-image
+    implementation(libs.glide)
 
     // gms firebase
     // implementation(platform(libs.firebase.bom))
