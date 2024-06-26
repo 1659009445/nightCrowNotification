@@ -7,3 +7,9 @@
 * fix time display issue
 * fix page bugs
 * fix notification bugs
+
+### v1.0.3
+* fix display bugs
+* fix known bugs.
+* add index charts.
+* add token parts.
