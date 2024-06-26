@@ -53,7 +53,7 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
             binding.swipeRefreshLayout.isRefreshing = false
             viewModel.loadData()
             Toast.makeText(context, "已刷新", Toast.LENGTH_SHORT).show()
-        }, 1000)
+        }, 600)
     }
 
     @SuppressLint("SetTextI18n")

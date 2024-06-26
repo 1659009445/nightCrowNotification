@@ -60,7 +60,12 @@ class CrowTokenAdapter : BaseQuickAdapter<TokenEntity, CrowTokenAdapter.ViewHold
             binding.priceCloseDollar.setTextColor(color)
 
             //近期价格变化
-            binding.priceChanged.text = String.format("%.2f", data.price_24h_changed)
+            if (data.price_24h_changed!! > 0) {
+                binding.priceChanged.text = "+" + String.format("%.2f", data.price_24h_changed)
+            } else {
+                binding.priceChanged.text = String.format("%.2f", data.price_24h_changed)
+            }
+
             binding.priceChanged.setTextColor(color)
             binding.pricePercent.text = "$symbol${data.price_24h_percent}%"
             binding.pricePercent.setTextColor(color)

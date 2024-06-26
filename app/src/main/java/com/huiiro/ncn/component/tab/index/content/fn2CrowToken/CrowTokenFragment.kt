@@ -1,6 +1,7 @@
 package com.huiiro.ncn.component.tab.index.content.fn2CrowToken
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,7 @@ class CrowTokenFragment : BaseViewModelFragment<IndexContentCrowTokenBinding>() 
 
     override fun initViewData() {
         super.initViewData()
+        binding.swipeRefreshLayout.setOnRefreshListener { refreshData() }
         binding.list.apply {
             layoutManager = LinearLayoutManager(requireContext())
         }
@@ -47,5 +49,13 @@ class CrowTokenFragment : BaseViewModelFragment<IndexContentCrowTokenBinding>() 
             }
         }
         viewModel.loadData()
+    }
+
+    private fun refreshData() {
+        binding.swipeRefreshLayout.postDelayed({
+            binding.swipeRefreshLayout.isRefreshing = false
+            viewModel.loadData()
+            Toast.makeText(context, "已刷新", Toast.LENGTH_SHORT).show()
+        }, 600)
     }
 }
