@@ -31,4 +31,8 @@ class CrowEntity {
     var hour_max_price: Double? = null
 
     var hour_min_price: Double? = null
+
+    var day_hour_details: List<CrowHourDetailEntity> ? = emptyList()
+
+    var day_trade_details: List<CrowTradeDetailEntity> ? = emptyList()
 }

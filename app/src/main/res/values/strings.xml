@@ -55,8 +55,12 @@
     <string name="avgVolume">平均值</string>
     <string name="count_time">统计时间</string>
     <string name="update_time">更新时间</string>
+    <string name="game_crow_price">游戏内实时币价：</string>
     <string name="day_crow_price">24小时内实时币价：</string>
     <string name="hour_crow_price">1小时内实时币价：</string>
+    <string name="line_chat_crow">单日币价走势图：</string>
+    <string name="bar_chat_crow">单日成交量走势图：</string>
+    <string name="crow_detail_history">历史数据：</string>
 
     <string name="crow_warning_title">来自系统提示：</string>
     <string name="crow_warning_text">检测到游戏内实时币价大于0.75，请合理安排铸币！</string>

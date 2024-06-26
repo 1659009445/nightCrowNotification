@@ -118,7 +118,11 @@ dependencies {
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
 
+    //splash
     implementation(libs.splashccreen)
+
+    //
+    implementation(libs.mp.android.chart)
 
     // gms firebase
     // implementation(platform(libs.firebase.bom))

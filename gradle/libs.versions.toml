@@ -21,6 +21,7 @@ dslTab = "3.5.5"
 work = "2.8.1"
 coroutines = "1.7.1"
 splashccreen = "1.0.0"
+mp-android-chart = "3.1.0"
 firebaseBom = "33.1.1"
 
 [libraries]
@@ -67,12 +68,13 @@ work-runtime = { group = "androidx.work", name = "work-runtime-ktx", version.ref
 #coroutines
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+#splashccreen
+splashccreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashccreen" }
+#mp-chart
+mp-android-chart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mp-android-chart" }
 #firebase
 #firebase-bom = { group = "com.google.firebase:firebase-bom", name = "firebase-bom", version.ref = "firebaseBom" }
 #firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
-#splashccreen
-splashccreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashccreen" }
-
 #example
 #= { group = "", name = "", version.ref = "" }
 
