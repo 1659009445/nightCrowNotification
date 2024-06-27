@@ -1,6 +1,7 @@
 package com.huiiro.ncn.http.service
 
 import com.huiiro.ncn.domain.CrowEntity
+import com.huiiro.ncn.domain.CrowUpdateEntity
 import com.huiiro.ncn.domain.CrowWarningEntity
 import com.huiiro.ncn.domain.NoticeEntity
 import com.huiiro.ncn.domain.TokenEntity
@@ -11,6 +12,9 @@ import com.huiiro.ncn.domain.common.Response
 import retrofit2.http.GET
 
 interface ICrowService {
+
+    @GET(Api.CHECK_UPDATE)
+    suspend fun checkUpdate(): Response<CrowUpdateEntity>
 
     @GET(Api.CROW_INFO)
     suspend fun crow(): Response<CrowEntity>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/update_desc"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/splash_update_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/crow"
+        android:textColorHint="@android:color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_marginTop="12dp"
+        android:id="@+id/splash_update_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/crow"
+        android:textColorHint="@android:color/black"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/splash_update_agree"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_primary_drawable"
+        android:text="@string/agree_update"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/splash_update_disagree"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/qmui_s_transparent"
+        android:text="@string/disagree_update"
+        android:textColor="@color/deep_grey"
+        android:textSize="12sp" />
+
+</LinearLayout>

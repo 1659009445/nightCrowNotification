@@ -5,6 +5,11 @@ object Api {
     const val BASE_URL = "https://api.huiiro.com/"
 
     /**
+     * check for update
+     */
+    const val CHECK_UPDATE = "crow/api/update"
+
+    /**
      * crow info
      */
     const val CROW_INFO = "crow/api/crow"
