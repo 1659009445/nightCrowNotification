@@ -72,6 +72,7 @@ class SplashUpdateDialogFragment : BaseCommonDialogFragment() {
 
         agreeView.setOnClickListener {
             dismiss()
+            Log.d(TAG, "initListener: Button Clicked!")
             if (Constant.VERSION_CODE < updateEntity.code!!) {
                 Log.d(TAG, "initListener: prepare for update")
                 updateHelper.downloadAndInstallApk(updateEntity.url!!)

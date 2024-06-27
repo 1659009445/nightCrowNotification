@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -35,30 +36,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
-            <!--账号管理功能-->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40sp" />
-
-            <include layout="@layout/component_divider_horizontal" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_margin="12sp"
-                android:text="@string/layout_title_settings_account"
-                android:textColor="@color/deep_grey_2"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
 
             <!--基本功能-->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40sp" />
-
-            <include layout="@layout/component_divider_horizontal" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
@@ -68,20 +47,40 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <!--开启通知-->
             <Button
                 android:id="@+id/manage_notification"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="开启通知" />
+                android:text="@string/fn_btn_enable_notification" />
 
+            <Button
+                android:id="@+id/clear_cache"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/fn_btn_clear_cache" />
 
-            <!--高级功能-->
+            <!--检查更新-->
+            <Button
+                android:id="@+id/manage_update"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/fn_btn_check_update" />
+
+            <!--当前版本号-->
+            <TextView
+                android:id="@+id/current_version"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:text="@string/current_version"
+                android:textColor="@color/deep_grey"
+                android:textSize="12sp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="40sp" />
 
-            <include layout="@layout/component_divider_horizontal" />
-
+            <!--高级功能-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
@@ -91,14 +90,15 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <!--高级功能内容-->
+            <!--高级功能内容-->
+            <!--高级功能内容-->
 
-            <!--更新日志-->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="40sp" />
 
-            <include layout="@layout/component_divider_horizontal" />
-
+            <!--更新日志-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
@@ -108,14 +108,15 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <!--更新日志内容-->
+            <!--更新日志内容-->
+            <!--更新日志内容-->
 
-            <!--鸣谢-->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="40sp" />
 
-            <include layout="@layout/component_divider_horizontal" />
-
+            <!--鸣谢-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
@@ -124,12 +125,59 @@
                 android:textColor="@color/deep_grey_2"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
+            <!--鸣谢内容-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/thank_inc"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:id="@+id/thank_licence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/thank_licence"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/image_desc"
+                    android:src="@drawable/res_logo_github" />
+
+                <TextView
+                    android:id="@+id/thank_project_url"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="@string/thank_project_url"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/thank_law"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12sp" />
         </LinearLayout>
 
         <View
             android:layout_width="15sp"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
 
 </LinearLayout>

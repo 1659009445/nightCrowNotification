@@ -10,7 +10,7 @@
     <string name="privacy_title">服务条款和隐私协议提示</string>
     <string name="privacy_content">
         <Data><![CDATA[
-            <h2>服务条款 v 1.0.1</h2>
+            <h2>服务条款</h2>
             <p>请认真阅读以下条款内容：</p>
             <p>该版本为内部测试版本，请勿对外宣传！</p>
             <p>软件第一次启动时可能会闪退，重新启动即可！</p>
@@ -18,6 +18,8 @@
             <p>该版本支持鸦币汇率实时查询，并实时通知。</p>
             <p>软件仅供学习交流，请勿用作违法用途。</p>
             <p>该软件最终解释权归Huiiro所有。</p>
+            <h2>隐私条款</h2>
+            <p>请认真阅读以下条款内容：</p>
             ]]></Data>
     </string>
     <string name="update_desc">监测到有新版本可用，是否更新？</string>
@@ -75,4 +77,17 @@
     <string name="low">Low</string>
     <string name="volume">Volume</string>
     <string name="volume_crow">Volume(CROW)</string>
+
+    <string name="fn_btn_enable_notification">开启通知</string>
+    <string name="fn_btn_check_update">检查更新</string>
+    <string name="fn_btn_clear_cache">清理缓存</string>
+    <string name="current_version">当前版本：1.0.0</string>
+    <string name="thank_inc">锅巴网络  Huiiro All Rights Reserved.</string>
+    <string name="thank_law">项目仅供学习参考，请勿用作违法用途！</string>
+    <string name="thank_project_url">
+       <Data><![CDATA[
+         <a href="https://github.com/1659009445/nightCrowNotification">Github</a>
+            ]]></Data>
+    </string>
+    <string name="thank_licence"> 本项目遵循GPLv3协议并且开源在</string>
 </resources>
