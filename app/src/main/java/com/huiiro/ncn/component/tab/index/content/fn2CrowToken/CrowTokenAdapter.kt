@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter4.BaseQuickAdapter
 import com.huiiro.ncn.R
 import com.huiiro.ncn.databinding.ComponentIndexTokenItemBinding
-import com.huiiro.ncn.databinding.IndexContentCrowTokenBinding
 import com.huiiro.ncn.domain.TokenEntity
 import com.huiiro.ncn.util.ImageUtils
 
@@ -37,14 +36,14 @@ class CrowTokenAdapter : BaseQuickAdapter<TokenEntity, CrowTokenAdapter.ViewHold
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("DefaultLocale", "SetTextI18n")
         fun bindData(data: TokenEntity) {
-            val color = when (data.price_status) {
+            val color = when (data.priceStatus) {
                 "U" -> ContextCompat.getColor(binding.root.context, R.color.up)
                 "D" -> ContextCompat.getColor(binding.root.context, R.color.down)
                 "S" -> ContextCompat.getColor(binding.root.context, R.color.black)
                 else -> ContextCompat.getColor(binding.root.context, R.color.black)
             }
 
-            val symbol = when (data.price_status) {
+            val symbol = when (data.priceStatus) {
                 "U" -> "+"
                 "D" -> "-"
                 else -> ""
@@ -56,24 +55,24 @@ class CrowTokenAdapter : BaseQuickAdapter<TokenEntity, CrowTokenAdapter.ViewHold
             //近期实时参考价
             binding.priceClose.text = "${data.close} CROW"
             binding.priceClose.setTextColor(color)
-            binding.priceCloseDollar.text = "$ " + String.format("%.2f", data.close_dollar)
+            binding.priceCloseDollar.text = "$ " + String.format("%.2f", data.closeDollar)
             binding.priceCloseDollar.setTextColor(color)
 
             //近期价格变化
-            if (data.price_24h_changed!! > 0) {
-                binding.priceChanged.text = "+" + String.format("%.2f", data.price_24h_changed)
+            if (data.price24hChanged!! > 0) {
+                binding.priceChanged.text = "+" + String.format("%.2f", data.price24hChanged)
             } else {
-                binding.priceChanged.text = String.format("%.2f", data.price_24h_changed)
+                binding.priceChanged.text = String.format("%.2f", data.price24hChanged)
             }
 
             binding.priceChanged.setTextColor(color)
-            binding.pricePercent.text = "$symbol${data.price_24h_percent}%"
+            binding.pricePercent.text = "$symbol${data.price24hPercent}%"
             binding.pricePercent.setTextColor(color)
 
             binding.high.text = data.high.toString()
             binding.low.text = data.low.toString()
             binding.low.text = data.low.toString()
-            binding.volume.text = data.traded_volume.toString()
+            binding.volume.text = data.tradedVolume.toString()
             binding.volumeCrow.text = data.volume.toString()
 
         }

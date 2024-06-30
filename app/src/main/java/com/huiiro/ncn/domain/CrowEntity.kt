@@ -12,27 +12,27 @@ class CrowEntity {
 
     var symbol: String? = null
 
-    var update_time: String? = null
+    var updateTime: String? = null
 
-    var day_begin_time: String? = null
+    var dayBeginTime: String? = null
 
-    var day_end_time: String? = null
+    var dayEndTime: String? = null
 
-    var day_average_price: Double? = null
+    var dayAveragePrice: Double? = null
 
-    var day_max_price: Double? = null
+    var dayMaxPrice: Double? = null
 
-    var day_min_price: Double? = null
+    var dayMinPrice: Double? = null
 
-    var day_accurate_price: Double? = null
+    var dayAccuratePrice: Double? = null
 
-    var hour_average_price: Double? = null
+    var hourAveragePrice: Double? = null
 
-    var hour_max_price: Double? = null
+    var hourMaxPrice: Double? = null
 
-    var hour_min_price: Double? = null
+    var hourMinPrice: Double? = null
 
-    var day_hour_details: List<CrowHourDetailEntity> ? = emptyList()
+    var dayHourDetails: List<CrowHourDetailEntity> ? = emptyList()
 
-    var day_trade_details: List<CrowTradeDetailEntity> ? = emptyList()
+    var dayTradeDetails: List<CrowTradeDetailEntity> ? = emptyList()
 }

@@ -13,4 +13,6 @@ class TokenChartEntity {
     var c: Double? = null
 
     var t: Int? = null
+
+    var time: String? = null
 }

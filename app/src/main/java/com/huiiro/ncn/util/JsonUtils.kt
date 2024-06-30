@@ -10,7 +10,7 @@ object JsonUtils {
 
         //驼峰转下划线
         //java服务端使用驼峰 kotlin客户端使用下划线
-        gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+        //gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
 
         return gsonBuilder.create()
     }

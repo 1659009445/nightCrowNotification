@@ -68,51 +68,51 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
             viewModel.data.collect { it ->
                 //更新时间
                 val updateTime =
-                    it.getData()?.update_time?.let { TimeUtils.getSimpleTimeWithSecond(it) }
+                    it.getData()?.updateTime?.let { TimeUtils.getSimpleTimeWithSecond(it) }
                         ?: "12-12 12:00"
                 binding.updateTime.text = "最后更新于：${updateTime}"
 
                 //统计时间
-                val beginTime = it.getData()?.day_begin_time?.let { TimeUtils.getSimpleTime(it) }
+                val beginTime = it.getData()?.dayBeginTime?.let { TimeUtils.getSimpleTime(it) }
                     ?: "12-12 12:00"
                 val endTime =
-                    it.getData()?.day_end_time?.let { TimeUtils.getSimpleTime(it) } ?: "12-12 12:00"
+                    it.getData()?.dayEndTime?.let { TimeUtils.getSimpleTime(it) } ?: "12-12 12:00"
 
                 binding.countTime.text = "$beginTime    -    $endTime"
 
                 //精确值
-                binding.dayActualPrice.text = "$ " + it.getData()?.day_accurate_price.toString()
+                binding.dayActualPrice.text = "$ " + it.getData()?.dayAccuratePrice.toString()
 
                 //日最小值
                 val dayMinValue = ComponentCrowPriceBinding.bind(binding.dayMinPrice)
-                dayMinValue.priceValue.text = "$ " + it.getData()?.day_min_price.toString()
+                dayMinValue.priceValue.text = "$ " + it.getData()?.dayMinPrice.toString()
                 dayMinValue.priceLabel.text = "最小值（\$）"
                 //日平均值
                 val dayAvgValue = ComponentCrowPriceBinding.bind(binding.dayAvgPrice)
-                dayAvgValue.priceValue.text = "$ " + it.getData()?.day_average_price.toString()
+                dayAvgValue.priceValue.text = "$ " + it.getData()?.dayAveragePrice.toString()
                 dayAvgValue.priceLabel.text = "平均值（\$）"
                 //日最大值
                 val dayMaxValue = ComponentCrowPriceBinding.bind(binding.dayMaxPrice)
-                dayMaxValue.priceValue.text = "$ " + it.getData()?.day_max_price.toString()
+                dayMaxValue.priceValue.text = "$ " + it.getData()?.dayMaxPrice.toString()
                 dayMaxValue.priceLabel.text = "最大值（\$）"
 
 
                 //时最小值
                 val hourMinValue = ComponentCrowPriceBinding.bind(binding.hourMinPrice)
-                hourMinValue.priceValue.text = "$ " + it.getData()?.hour_min_price.toString()
+                hourMinValue.priceValue.text = "$ " + it.getData()?.hourMinPrice.toString()
                 hourMinValue.priceLabel.text = "最小值（\$）"
                 //时平均值
                 val hourAvgValue = ComponentCrowPriceBinding.bind(binding.hourAvgPrice)
-                hourAvgValue.priceValue.text = "$ " + it.getData()?.hour_average_price.toString()
+                hourAvgValue.priceValue.text = "$ " + it.getData()?.hourAveragePrice.toString()
                 hourAvgValue.priceLabel.text = "平均值（\$）"
                 //日最大值
                 val hourMaxValue = ComponentCrowPriceBinding.bind(binding.hourMaxPrice)
-                hourMaxValue.priceValue.text = "$ " + it.getData()?.hour_max_price.toString()
+                hourMaxValue.priceValue.text = "$ " + it.getData()?.hourMaxPrice.toString()
                 hourMaxValue.priceLabel.text = "最大值（\$）"
 
                 //图表
-                val dayHourDetails = it.getData()?.day_hour_details
-                val tradeDetails = it.getData()?.day_trade_details
+                val dayHourDetails = it.getData()?.dayHourDetails
+                val tradeDetails = it.getData()?.dayTradeDetails
 
                 val lineEntries = mutableListOf<Entry>()
                 val barEntries = mutableListOf<BarEntry>()

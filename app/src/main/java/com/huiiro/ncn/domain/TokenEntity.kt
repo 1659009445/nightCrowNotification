@@ -8,13 +8,13 @@ class TokenEntity {
 
     var close: String? = null
 
-    var close_dollar: Double? = null
+    var closeDollar: Double? = null
 
-    var price_status: String? = null
+    var priceStatus: String? = null
 
-    var price_24h_percent: String? = null
+    var price24hPercent: String? = null
 
-    var price_24h_changed: Double? = null
+    var price24hChanged: Double? = null
 
     var prev: Double? = null
 
@@ -24,12 +24,11 @@ class TokenEntity {
 
     var volume: Double? = null
 
-    var traded_volume: Double? = null
+    var tradedVolume: Double? = null
 
-    var traded_volume_dollar: Double? = null
+    var tradedVolumeDollar: Double? = null
 
-    var update_time: String? = null
+    var updateTime: String? = null
 
-    var charts: List<TokenEntity> = emptyList()
-
+    var charts: List<TokenChartEntity> = emptyList()
 }
