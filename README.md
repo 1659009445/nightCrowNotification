@@ -4,6 +4,19 @@
 
 * require android min sdk 31(Android 12)
 
+### v1.0.6
+
+* update apis, add long-term support
+
+### v1.0.5
+
+* support online update
+* fix known bugs
+
+### v1.0.4
+
+* add token query function
+
 ### v1.0.3
 
 * fix display bugs
