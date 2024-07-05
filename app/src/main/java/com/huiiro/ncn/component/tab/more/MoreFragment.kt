@@ -1,5 +1,7 @@
 package com.huiiro.ncn.component.tab.more
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,13 +40,22 @@ class MoreFragment : BaseViewModelFragment<MoreFragmentBinding>() {
 
         val moreItems = listOf(
             MoreEntity().apply {
-                title = "即将更新，敬请期待"
-                image = "image_url"
-                action = "action"
+                title = "快速链接：Huiiro Guide"
+                image = ""
+                action = "https://www.huiiro.com/tool/common/guide"
             }
         )
 
         adapter.submitList(moreItems)
+    }
+
+    override fun initListener() {
+        super.initListener()
+        adapter.onItemClick = { t ->
+            //默认行为为打开浏览器，而不是打开页面
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(t.action))
+            startActivity(intent)
+        }
     }
 
     private fun refreshData() {
