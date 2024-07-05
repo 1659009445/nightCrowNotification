@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.huiiro.ncn.R
+import com.huiiro.ncn.component.tab.index.content.fn2CrowToken.view.CrowTokenLineChatView
 import com.huiiro.ncn.databinding.ComponentIndexTokenItemBinding
 import com.huiiro.ncn.domain.TokenChartEntity
 import com.huiiro.ncn.domain.TokenEntity

@@ -17,7 +17,7 @@ import com.huiiro.ncn.base.consts.NotificationConstants
 import com.huiiro.ncn.core.helper.NotificationHelper
 import com.huiiro.ncn.core.receiver.AlarmReceiver
 import com.huiiro.ncn.core.worker.CheckCrowWorker
-import com.huiiro.ncn.util.TimeUtils
+import com.huiiro.ncn.util.FormatUtils
 import java.util.concurrent.TimeUnit
 
 /**
@@ -91,7 +91,7 @@ class ForegroundService : Service() {
 
         //设置提醒时间
         val intervalMillis = 5 * 60 * 1000L
-        val startTime = TimeUtils.getNext5MultipleTimeMillis()
+        val startTime = FormatUtils.getNext5MultipleTimeMillis()
 
         //val intervalMillis = 1 * 60 * 1000L
         //val startTime = System.currentTimeMillis()

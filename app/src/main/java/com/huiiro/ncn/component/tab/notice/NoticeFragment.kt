@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.huiiro.ncn.base.consts.Constant
 import com.huiiro.ncn.base.fragment.BaseViewModelFragment
+import com.huiiro.ncn.component.tab.notice.view.NoticeViewModel
 import com.huiiro.ncn.databinding.NoticeFragmentBinding
 import kotlinx.coroutines.launch
 

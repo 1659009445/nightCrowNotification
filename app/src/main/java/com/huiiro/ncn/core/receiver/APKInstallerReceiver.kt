@@ -8,6 +8,9 @@ import android.util.Log
 import android.widget.Toast
 import com.huiiro.ncn.core.helper.UpdateHelper
 
+/**
+ * 接收 应用安装更新事件
+ */
 class APKInstallerReceiver : BroadcastReceiver() {
 
     private lateinit var updateHelper: UpdateHelper

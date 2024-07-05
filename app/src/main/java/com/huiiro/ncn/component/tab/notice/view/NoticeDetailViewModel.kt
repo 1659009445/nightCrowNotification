@@ -1,4 +1,4 @@
-package com.huiiro.ncn.component.tab.notice
+package com.huiiro.ncn.component.tab.notice.view
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

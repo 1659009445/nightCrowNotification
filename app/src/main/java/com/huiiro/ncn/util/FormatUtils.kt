@@ -1,6 +1,8 @@
 package com.huiiro.ncn.util
 
-object TimeUtils {
+import android.icu.text.NumberFormat
+
+object FormatUtils {
 
     /**
      * eg 2024-06-22 12:00:00
@@ -51,6 +53,14 @@ object TimeUtils {
             5 - (currentMinute % 5)
         }
         return currentTimeMillis + minutesUntilNextMultipleOfFive * 60000
+    }
+
+    fun formatDouble(it: Double, i: Int): String {
+        val instance = NumberFormat.getInstance()
+        instance.isGroupingUsed = false
+        instance.maximumFractionDigits= i
+        val result = instance.format(it)
+        return result
     }
 
 }

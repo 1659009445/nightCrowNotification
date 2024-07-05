@@ -63,10 +63,19 @@
     <string name="game_crow_price">游戏内实时币价：</string>
     <string name="day_crow_price">24小时内实时币价：</string>
     <string name="hour_crow_price">1小时内实时币价：</string>
+    <string name="hour_wemix_price">1小时内币价变化：</string>
+    <string name="day_wemix_price">1日内币价变化：</string>
+    <string name="week_wemix_price">1周内币价变化：</string>
+    <string name="month_wemix_price">1月内币价变化：</string>
+    <string name="year_wemix_price">1年内币价变化：</string>
     <string name="line_chat_crow">单日币价走势图：</string>
     <string name="bar_chat_crow">单日成交量走势图：</string>
     <string name="crow_detail_history">历史数据（只展示前100条数据）：</string>
     <string name="wemix_price">WEMIX币价：</string>
+    <string name="wemix_volume">持有数量：</string>
+    <string name="wemix_volume_change">持有变动：</string>
+    <string name="wemix_price_change">价格变动：</string>
+    <string name="wemix_price_liquidity">资金流动：</string>
 
     <string name="crow_warning_title">来自系统提示：</string>
     <string name="crow_warning_text">检测到游戏内实时币价大于0.75，请合理安排铸币！</string>

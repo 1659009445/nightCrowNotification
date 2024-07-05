@@ -1,4 +1,4 @@
-package com.huiiro.ncn.component.tab.index.content.fn2CrowToken
+package com.huiiro.ncn.component.tab.index.content.fn2CrowToken.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingEnd="20dp"
-            android:text="@string/crow"
+            android:text="@string/defaultVolume"
             android:textSize="20sp"
             tools:ignore="RtlSymmetry" />
 
@@ -50,7 +50,7 @@
             android:id="@+id/price_close_dollar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/crow"
+            android:text="@string/defaultVolume"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -63,14 +63,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingEnd="20dp"
-            android:text="@string/crow"
+            android:text="@string/defaultVolume"
             tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/price_percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/crow" />
+            android:text="@string/defaultVolume" />
     </LinearLayout>
 
     <LinearLayout
@@ -95,7 +95,7 @@
                 android:id="@+id/high"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/crow"
+                android:text="@string/defaultVolume"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
         </LinearLayout>
@@ -117,7 +117,7 @@
                 android:id="@+id/low"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/crow"
+                android:text="@string/defaultVolume"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
         </LinearLayout>
@@ -139,7 +139,7 @@
                 android:id="@+id/volume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/crow"
+                android:text="@string/defaultVolume"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
         </LinearLayout>
@@ -161,7 +161,7 @@
                 android:id="@+id/volumeCrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/crow"
+                android:text="@string/defaultVolume"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
         </LinearLayout>

@@ -39,7 +39,6 @@ class UpdateHelper(private val context: Context) {
             putLong("downloadId", downloadId)
             apply()
         }
-
     }
 
     fun installApk() {

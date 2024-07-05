@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.huiiro.ncn.base.activity.BaseViewModelActivity
 import com.huiiro.ncn.base.consts.Constant
+import com.huiiro.ncn.component.tab.notice.view.NoticeDetailViewModel
 import com.huiiro.ncn.databinding.NoticeDetailActivityBinding
 import kotlinx.coroutines.launch
 
@@ -68,6 +69,7 @@ class NoticeDetailActivity : BaseViewModelActivity<NoticeDetailActivityBinding>(
             val prevUrl = binding.noticePrev.text.toString()
             val intent = Intent(this, NoticeDetailActivity::class.java)
             intent.putExtra(Constant.NOTICE_ID, prevUrl.toIntOrNull() ?: -1)
+            finish()
             startActivity(intent)
         }
 
@@ -76,6 +78,7 @@ class NoticeDetailActivity : BaseViewModelActivity<NoticeDetailActivityBinding>(
             val nextUrl = binding.noticeNext.text.toString()
             val intent = Intent(this, NoticeDetailActivity::class.java)
             intent.putExtra(Constant.NOTICE_ID, nextUrl.toIntOrNull() ?: -1)
+            finish()
             startActivity(intent)
         }
 

@@ -1,53 +1,592 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="DuplicateIds">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_shader_light"
+                android:orientation="vertical">
+
+                <!--更新时间-->
+                <TextView
+                    android:id="@+id/update_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/update_time"
+                    android:textColor="@color/deep_grey"
+                    android:textSize="11sp"
+                    android:visibility="invisible"
+                    tools:ignore="Suspicious0dp" />
+
+                <!--L1-->
+                <!--货币游戏内实时价格-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="@string/wemix_price"
+                    android:textColor="@color/deep_grey_2"
+                    android:textSize="16sp" />
+
+                <!--WEMIX价格-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@string/image_desc"
+                        android:src="@drawable/res_pic_token_wemix" />
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <!--分割线-->
+                <include layout="@layout/component_divider_horizontal" />
+
+
+                <!--L2-->
+                <!--最近一小时-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/hour_wemix_price"
+                    android:textColor="@color/deep_grey_2"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--价格变动-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/one_hour_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <include layout="@layout/component_divider_horizontal" />
+
+
+                <!--L3-->
+                <!--最近一日-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/day_wemix_price"
+                    android:textColor="@color/deep_grey_2"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_volume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--持有数量-->
+                    <TextView
+                        android:id="@+id/one_day_volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_volume_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--持有变动-->
+                    <TextView
+                        android:id="@+id/one_day_volume_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--价格变动-->
+                    <TextView
+                        android:id="@+id/one_day_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_liquidity"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--资金流动-->
+                    <TextView
+                        android:id="@+id/one_day_liquidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <include layout="@layout/component_divider_horizontal" />
+
+
+                <!--L4-->
+                <!--最近一周-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/week_wemix_price"
+                    android:textColor="@color/deep_grey_2"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_volume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--持有数量-->
+                    <TextView
+                        android:id="@+id/one_week_volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_volume_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--持有变动-->
+                    <TextView
+                        android:id="@+id/one_week_volume_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--价格变动-->
+                    <TextView
+                        android:id="@+id/one_week_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_liquidity"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--资金流动-->
+                    <TextView
+                        android:id="@+id/one_week_liquidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <include layout="@layout/component_divider_horizontal" />
+
+
+                <!--L5-->
+                <!--最近一月-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/month_wemix_price"
+                    android:textColor="@color/deep_grey_2"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_volume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--持有数量-->
+                    <TextView
+                        android:id="@+id/one_month_volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_volume_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--持有变动-->
+                    <TextView
+                        android:id="@+id/one_month_volume_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--价格变动-->
+                    <TextView
+                        android:id="@+id/one_month_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_liquidity"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--资金流动-->
+                    <TextView
+                        android:id="@+id/one_month_liquidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <include layout="@layout/component_divider_horizontal" />
+
+                <!--L6-->
+                <!--最近一年-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/year_wemix_price"
+                    android:textColor="@color/deep_grey_2"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_volume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--持有数量-->
+                    <TextView
+                        android:id="@+id/one_year_volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_volume_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--持有变动-->
+                    <TextView
+                        android:id="@+id/one_year_volume_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_change"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--价格变动-->
+                    <TextView
+                        android:id="@+id/one_year_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="@string/wemix_price_liquidity"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                    <!--资金流动-->
+                    <TextView
+                        android:id="@+id/one_year_liquidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="@string/defaultVolume"
+                        android:textColor="@color/deep_grey_2"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonToTop"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_shader_light"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/image_desc"
+        app:backgroundTint="@color/light_grey"
+        app:srcCompat="@drawable/res_pic_top" />
 
-        <!--货币游戏内实时价格-->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:text="@string/wemix_price"
-            android:textColor="@color/deep_grey_2"
-            android:textSize="16sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:contentDescription="@string/image_desc"
-                android:src="@drawable/res_pic_token_wemix" />
-
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/defaultVolume"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="30dp"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

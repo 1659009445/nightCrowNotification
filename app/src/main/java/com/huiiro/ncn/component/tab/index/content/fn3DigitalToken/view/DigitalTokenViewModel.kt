@@ -1,22 +1,22 @@
-package com.huiiro.ncn.component.tab.index.content.fn1BuildCrow
+package com.huiiro.ncn.component.tab.index.content.fn3DigitalToken.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.huiiro.ncn.domain.CrowEntity
+import com.huiiro.ncn.domain.WemixEntity
 import com.huiiro.ncn.domain.common.Response
 import com.huiiro.ncn.http.repository.CrowRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class BuildTokenViewModel : ViewModel() {
+class DigitalTokenViewModel : ViewModel() {
 
-    private val _data = MutableStateFlow(Response<CrowEntity>())
-    val data: StateFlow<Response<CrowEntity>> get() = _data
+    private val _data = MutableStateFlow(Response<WemixEntity>())
+    val data: StateFlow<Response<WemixEntity>> get() = _data
 
     fun loadData() {
         viewModelScope.launch {
-            val result = CrowRepository.crow()
+            val result = CrowRepository.wemix()
             _data.emit(result)
         }
     }

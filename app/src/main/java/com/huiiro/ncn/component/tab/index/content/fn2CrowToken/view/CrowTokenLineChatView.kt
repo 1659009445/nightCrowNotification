@@ -1,4 +1,4 @@
-package com.huiiro.ncn.component.tab.index.content.fn2CrowToken
+package com.huiiro.ncn.component.tab.index.content.fn2CrowToken.view
 
 import android.annotation.SuppressLint
 import android.content.Context

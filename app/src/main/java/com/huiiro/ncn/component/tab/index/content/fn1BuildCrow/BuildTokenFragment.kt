@@ -1,6 +1,6 @@
 package com.huiiro.ncn.component.tab.index.content.fn1BuildCrow
 
-import BuildTokenLineChatView
+import com.huiiro.ncn.component.tab.index.content.fn1BuildCrow.view.BuildTokenLineChatView
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
@@ -19,9 +19,11 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.huiiro.ncn.R
 import com.huiiro.ncn.base.consts.Constant
 import com.huiiro.ncn.base.fragment.BaseViewModelFragment
+import com.huiiro.ncn.component.tab.index.content.fn1BuildCrow.view.BuildTokenBarChatView
+import com.huiiro.ncn.component.tab.index.content.fn1BuildCrow.view.BuildTokenViewModel
 import com.huiiro.ncn.databinding.ComponentCrowPriceBinding
 import com.huiiro.ncn.databinding.IndexContentBuildCrowBinding
-import com.huiiro.ncn.util.TimeUtils
+import com.huiiro.ncn.util.FormatUtils
 import kotlinx.coroutines.launch
 
 class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>() {
@@ -90,57 +92,63 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
             viewModel.data.collect { it ->
                 //更新时间
                 val updateTime =
-                    it.getData()?.updateTime?.let { TimeUtils.getSimpleTimeWithSecond(it) }
+                    it.getData()?.updateTime?.let { FormatUtils.getSimpleTimeWithSecond(it) }
                         ?: "12-12 12:00"
                 binding.updateTime.text = "最后更新于：${updateTime}"
 
                 //统计时间
-                val beginTime = it.getData()?.dayBeginTime?.let { TimeUtils.getSimpleTime(it) }
+                val beginTime = it.getData()?.dayBeginTime?.let { FormatUtils.getSimpleTime(it) }
                     ?: "12-12 12:00"
-                val endTime =
-                    it.getData()?.dayEndTime?.let { TimeUtils.getSimpleTime(it) } ?: "12-12 12:00"
-
+                val endTime = it.getData()?.dayEndTime?.let { FormatUtils.getSimpleTime(it) }
+                    ?: "12-12 12:00"
                 binding.countTime.text = "$beginTime    -    $endTime"
 
                 //精确值
-                binding.dayActualPrice.text = "$ " + it.getData()?.dayAccuratePrice.toString()
+                binding.dayActualPrice.text = "$ " + it.getData()?.dayAccuratePrice
+                    ?.let { FormatUtils.formatDouble(it, 12) }
 
                 //日最小值
                 val dayMinValue = ComponentCrowPriceBinding.bind(binding.dayMinPrice)
-                dayMinValue.priceValue.text = "$ " + it.getData()?.dayMinPrice.toString()
+                dayMinValue.priceValue.text = "$ " + it.getData()?.dayMinPrice
+                    ?.let { FormatUtils.formatDouble(it, 4) }
                 dayMinValue.priceLabel.text = "最小值（\$）"
+
                 //日平均值
                 val dayAvgValue = ComponentCrowPriceBinding.bind(binding.dayAvgPrice)
-                dayAvgValue.priceValue.text = "$ " + it.getData()?.dayAveragePrice.toString()
+                dayAvgValue.priceValue.text = "$ " + it.getData()?.dayAveragePrice
+                    ?.let { FormatUtils.formatDouble(it, 4) }
                 dayAvgValue.priceLabel.text = "平均值（\$）"
+
                 //日最大值
                 val dayMaxValue = ComponentCrowPriceBinding.bind(binding.dayMaxPrice)
-                dayMaxValue.priceValue.text = "$ " + it.getData()?.dayMaxPrice.toString()
+                dayMaxValue.priceValue.text = "$ " + it.getData()?.dayMaxPrice
+                    ?.let { FormatUtils.formatDouble(it, 4) }
                 dayMaxValue.priceLabel.text = "最大值（\$）"
 
 
                 //时最小值
                 val hourMinValue = ComponentCrowPriceBinding.bind(binding.hourMinPrice)
-                hourMinValue.priceValue.text = "$ " + it.getData()?.hourMinPrice.toString()
+                hourMinValue.priceValue.text = "$ " + it.getData()?.hourMinPrice
+                    ?.let { FormatUtils.formatDouble(it, 4) }
                 hourMinValue.priceLabel.text = "最小值（\$）"
+
                 //时平均值
                 val hourAvgValue = ComponentCrowPriceBinding.bind(binding.hourAvgPrice)
-                hourAvgValue.priceValue.text = "$ " + it.getData()?.hourAveragePrice.toString()
+                hourAvgValue.priceValue.text = "$ " + it.getData()?.hourAveragePrice
+                    ?.let { FormatUtils.formatDouble(it, 4) }
                 hourAvgValue.priceLabel.text = "平均值（\$）"
+
                 //日最大值
                 val hourMaxValue = ComponentCrowPriceBinding.bind(binding.hourMaxPrice)
-                hourMaxValue.priceValue.text = "$ " + it.getData()?.hourMaxPrice.toString()
+                hourMaxValue.priceValue.text = "$ " + it.getData()?.hourMaxPrice
+                    ?.let { FormatUtils.formatDouble(it, 4) }
                 hourMaxValue.priceLabel.text = "最大值（\$）"
 
-                //图表
+
+                //折线图表
                 val dayHourDetails = it.getData()?.dayHourDetails
-                val tradeDetails = it.getData()?.dayTradeDetails
-
                 val lineEntries = mutableListOf<Entry>()
-                val barEntries = mutableListOf<BarEntry>()
-
                 val labels = mutableListOf<String>()
-                val crowVolume = mutableListOf<String>()
 
                 if (dayHourDetails != null) {
                     for ((index, detail) in dayHourDetails.withIndex()) {
@@ -152,25 +160,10 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                     }
                 }
 
-                if (tradeDetails != null) {
-                    for ((index, detail) in tradeDetails.withIndex()) {
-                        detail.v?.let { volume ->
-                            barEntries.add(BarEntry(index.toFloat(), volume.toFloat()))
-                            crowVolume.add((detail.w ?: "").toString())
-                        }
-                    }
-                }
-
                 val lineDataSet = LineDataSet(lineEntries, "Crow Price")
-                val barDataSet = BarDataSet(barEntries, "Crow Volume")
-
                 val lineData = LineData(lineDataSet)
-                val barData = BarData(barDataSet)
-
                 binding.lineChart.data = lineData
-                binding.barChart.data = barData
 
-                //build line
                 val lineXAxis = binding.lineChart.xAxis
                 lineXAxis.valueFormatter = IndexAxisValueFormatter(labels)
                 lineXAxis.position = XAxis.XAxisPosition.BOTTOM
@@ -189,7 +182,25 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 binding.lineChart.axisRight.isEnabled = true
                 binding.lineChart.invalidate()
 
-                //build bar
+
+                //柱状图表
+                val tradeDetails = it.getData()?.dayTradeDetails
+                val barEntries = mutableListOf<BarEntry>()
+                val crowVolume = mutableListOf<String>()
+
+                if (tradeDetails != null) {
+                    for ((index, detail) in tradeDetails.withIndex()) {
+                        detail.v?.let { volume ->
+                            barEntries.add(BarEntry(index.toFloat(), volume.toFloat()))
+                            crowVolume.add((detail.w ?: "").toString())
+                        }
+                    }
+                }
+
+                val barDataSet = BarDataSet(barEntries, "Crow Volume")
+                val barData = BarData(barDataSet)
+                binding.barChart.data = barData
+
                 val barXAxis = binding.barChart.xAxis
                 barXAxis.valueFormatter = IndexAxisValueFormatter(labels)
                 barXAxis.position = XAxis.XAxisPosition.BOTTOM
@@ -209,7 +220,8 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 binding.lineChart.axisRight.isEnabled = true
                 binding.barChart.invalidate()
 
-                //build history data
+
+                //历史数据
                 adapter = BuildTokenHistoryDataAdapter()
                 binding.list.adapter = adapter
 
