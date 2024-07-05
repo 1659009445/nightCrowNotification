@@ -1,10 +1,12 @@
 package com.huiiro.ncn.component.tab.index.content.fn2CrowToken
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.huiiro.ncn.base.consts.Constant
 import com.huiiro.ncn.base.fragment.BaseViewModelFragment
 import com.huiiro.ncn.databinding.IndexContentCrowTokenBinding
@@ -49,6 +51,29 @@ class CrowTokenFragment : BaseViewModelFragment<IndexContentCrowTokenBinding>() 
         }
         viewModel.loadData()
     }
+
+    override fun initListener() {
+        super.initListener()
+
+        // Implement scroll to top button click
+        binding.buttonToTop.setOnClickListener {
+            binding.list.smoothScrollToPosition(0)
+        }
+
+        // Add scroll listener to RecyclerView
+        binding.list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                // Show or hide the button based on scroll position
+                if (recyclerView.canScrollVertically(-1)) {
+                    binding.buttonToTop.visibility = View.VISIBLE
+                } else {
+                    binding.buttonToTop.visibility = View.GONE
+                }
+            }
+        })
+    }
+
 
     private fun refreshData() {
         binding.swipeRefreshLayout.postDelayed({

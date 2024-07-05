@@ -82,6 +82,8 @@
     <string name="fn_btn_enable_notification">开启通知</string>
     <string name="fn_btn_check_update">检查更新</string>
     <string name="fn_btn_clear_cache">清理缓存</string>
+    <string name="fn_btn_set_alarm">设置提醒铃声</string>
+    <string name="fn_btn_read_log">查看运行日志</string>
     <string name="current_version">当前版本：1.0.0</string>
     <string name="thank_inc">锅巴网络  Huiiro All Rights Reserved.</string>
     <string name="thank_law">项目仅供学习参考，请勿用作违法用途！</string>
@@ -91,4 +93,13 @@
             ]]></Data>
     </string>
     <string name="thank_licence"> 本项目遵循GPLv3协议并且开源在</string>
+    <string name="update_project_desc">查看更新日志内容：</string>
+    <string name="update_project_url">
+         <Data><![CDATA[
+         <a href="https://www.huiiro.com/page/ncnDownload">Huiiro</a>
+            ]]></Data></string>
+    <string name="view_original">查看原文</string>
+    <string name="view_prev">&lt; 上一篇</string>
+    <string name="view_next">下一篇 &gt;</string>
+    <string name="back">&lt;返回</string>
 </resources>

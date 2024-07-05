@@ -1,33 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/notice_title"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/layout_notice"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:paddingBottom="8dp"/>
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingTop="8dp">
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/notice_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="@string/layout_notice"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/notice_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="26dp"
+                    android:text="@string/layout_notice"
+                    android:textColor="@color/deep_grey_2"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/notice_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_notice"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/control_button"
+                    style="?android:attr/buttonBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/view_prev_button"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:background="@drawable/button_sub_drawable"
+                        android:paddingStart="18dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="18dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/view_prev"
+                        android:textColor="@color/deep_grey"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/view_original_button"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="160dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="16dp"
+                        android:background="@drawable/button_primary_drawable"
+                        android:paddingStart="24dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="24dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/view_original"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/view_next_button"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="16dp"
+                        android:background="@drawable/button_sub_drawable"
+                        android:paddingStart="18dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="18dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/view_next"
+                        android:textColor="@color/deep_grey"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/back"
+                    android:textColor="@android:color/black"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
 
         <TextView
-            android:id="@+id/notice_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/layout_notice"
-            android:textColor="@color/black"
-            android:textSize="16sp"/>
-    </ScrollView>
+            android:id="@+id/notice_url"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:visibility="invisible" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/notice_prev"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/notice_next"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonToTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/image_desc"
+        android:visibility="gone"
+        app:backgroundTint="@color/light_grey"
+        app:srcCompat="@drawable/res_pic_top" />
+</FrameLayout>

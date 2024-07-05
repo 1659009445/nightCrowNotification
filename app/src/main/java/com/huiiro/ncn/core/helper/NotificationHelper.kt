@@ -108,15 +108,15 @@ class NotificationHelper(private val context: Context) {
             .setOngoing(true)
             .setSound(null)
             .setPriority(NotificationCompat.PRIORITY_MAX)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.drawable.res_pic_coin)
             .setContentTitle(NotificationConstants.CONTENT_TITLE)
             .setContentText(NotificationConstants.CONTENT_TEXT)
             .setDeleteIntent(dismissPendingIntent)
             .setContentIntent(mainActivityPendingIntent)
-            .addAction(R.drawable.ic_launcher_foreground, "Stop Once", stopOncePendingIntent)
-            .addAction(R.drawable.ic_launcher_foreground, "Stop Forever", stopForeverPendingIntent)
+            .addAction(R.drawable.res_pic_coin, "Stop Once", stopOncePendingIntent)
+            .addAction(R.drawable.res_pic_coin, "Stop Forever", stopForeverPendingIntent)
             .addAction(
-                R.drawable.ic_launcher_foreground,
+                R.drawable.res_pic_coin,
                 "Stop Notification",
                 stopNotificationPendingIntent
             )

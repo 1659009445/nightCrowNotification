@@ -1,4 +1,4 @@
-package com.huiiro.ncn.component.tab.my
+package com.huiiro.ncn.component.tab.settings
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -38,7 +38,9 @@ class SettingsFragment : BaseViewModelFragment<SettingsFragmentBinding>() {
         super.initDatum()
 
         val content = Html.fromHtml(getString(R.string.thank_project_url))
+        val update = Html.fromHtml(getString(R.string.update_project_url))
         binding.thankProjectUrl.text = content
+        binding.updateProjectUrl.text = update
 
         notificationHelper = NotificationHelper(requireContext())
 
@@ -77,6 +79,16 @@ class SettingsFragment : BaseViewModelFragment<SettingsFragmentBinding>() {
                     requireFragmentManager()
                 ) {}
             }
+        }
+
+        //设置自定义铃声
+        binding.setAlarm.setOnClickListener {
+            Toast.makeText(context, "该功能即将上线，敬请期待！", Toast.LENGTH_SHORT).show()
+        }
+
+        //获取运行日志
+        binding.readLog.setOnClickListener {
+            Toast.makeText(context, "该功能即将上线，敬请期待！", Toast.LENGTH_SHORT).show()
         }
     }
 }

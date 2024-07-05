@@ -44,6 +44,7 @@ class NoticeAdapter : BaseQuickAdapter<NoticeEntity, NoticeAdapter.ViewHolder>()
         fun bindData(tokenEntity: NoticeEntity) {
             binding.noticeTitle.text = tokenEntity.title
             binding.noticeTime.text = tokenEntity.start
+
         }
     }
 }

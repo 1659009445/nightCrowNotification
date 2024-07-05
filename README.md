@@ -4,6 +4,12 @@
 
 * require android min sdk 31(Android 12)
 
+### v1.0.7
+
+* add notice function and more function part
+* optimized page display issues
+* fix known bugs
+
 ### v1.0.6
 
 * update apis, add long-term support

@@ -1,8 +1,11 @@
 package com.huiiro.ncn.component.tab.notice
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.text.Html
 import android.util.Log
-import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.huiiro.ncn.base.activity.BaseViewModelActivity
@@ -23,6 +26,7 @@ class NoticeDetailActivity : BaseViewModelActivity<NoticeDetailActivityBinding>(
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun initDatum() {
         super.initDatum()
         val noticeId = intent.getIntExtra(Constant.NOTICE_ID, -1)
@@ -32,24 +36,74 @@ class NoticeDetailActivity : BaseViewModelActivity<NoticeDetailActivityBinding>(
 
         lifecycleScope.launch {
             viewModel.data.collect {
-                binding.noticeTitle.text = it.getData()?.title
                 val content = it.getData()?.content ?: ""
-                // 使用 Html.fromHtml 解析 HTML 内容
-                binding.noticeContent.text =
-                    Html.fromHtml(content, Html.FROM_HTML_MODE_COMPACT)
+                binding.noticePrev.text = it.getData()?.prevArticleId.toString()
+                binding.noticeNext.text = it.getData()?.nextArticleId.toString()
+                binding.noticeTitle.text = it.getData()?.title
+                binding.noticeTime.text = it.getData()?.startedAt
+                binding.noticeContent.text = Html.fromHtml(content, Html.FROM_HTML_MODE_COMPACT)
+                binding.noticeUrl.text = it.getData()?.url
             }
         }
         viewModel.loadData(noticeId)
     }
 
+    override fun initListener() {
+        super.initListener()
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                true
+        //back button
+        binding.backButton.setOnClickListener {
+            finish()
+        }
+
+        //click to redirect to origin web page
+        binding.viewOriginalButton.setOnClickListener {
+            val url = "https://www.nightcrows.com/"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(binding.noticeUrl.let { url }))
+            startActivity(intent)
+        }
+
+        //click prev notice
+        binding.viewPrevButton.setOnClickListener {
+            val prevUrl = binding.noticePrev.text.toString()
+            val intent = Intent(this, NoticeDetailActivity::class.java)
+            intent.putExtra(Constant.NOTICE_ID, prevUrl.toIntOrNull() ?: -1)
+            startActivity(intent)
+        }
+
+        //click next notice
+        binding.viewNextButton.setOnClickListener {
+            val nextUrl = binding.noticeNext.text.toString()
+            val intent = Intent(this, NoticeDetailActivity::class.java)
+            intent.putExtra(Constant.NOTICE_ID, nextUrl.toIntOrNull() ?: -1)
+            startActivity(intent)
+        }
+
+        //handle visible problems
+        binding.noticeContent.setOnClickListener {
+            binding.controlButton.visibility = View.VISIBLE
+            binding.backButton.visibility = View.VISIBLE
+            binding.buttonToTop.visibility = View.VISIBLE
+        }
+        binding.scrollView.setOnScrollChangeListener { _, _, _, _, _ ->
+            if (binding.controlButton.visibility == View.GONE) {
+                binding.controlButton.visibility = View.VISIBLE
+                binding.backButton.visibility = View.VISIBLE
+                binding.buttonToTop.visibility = View.VISIBLE
             }
-            else -> super.onOptionsItemSelected(item)
+        }
+
+        //back top button
+        binding.buttonToTop.setOnClickListener {
+            binding.scrollView.smoothScrollTo(0, 0)
+        }
+        binding.scrollView.viewTreeObserver.addOnScrollChangedListener {
+            val scrollY = binding.scrollView.scrollY
+            if (scrollY > 0) {
+                binding.buttonToTop.visibility = View.VISIBLE
+            } else {
+                binding.buttonToTop.visibility = View.GONE
+            }
         }
     }
 }

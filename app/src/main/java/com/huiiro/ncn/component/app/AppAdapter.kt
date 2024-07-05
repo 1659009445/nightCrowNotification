@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.huiiro.ncn.component.tab.index.IndexFragment
 import com.huiiro.ncn.component.tab.more.MoreFragment
-import com.huiiro.ncn.component.tab.my.SettingsFragment
+import com.huiiro.ncn.component.tab.settings.SettingsFragment
 import com.huiiro.ncn.component.tab.notice.NoticeFragment
 
 class AppAdapter(fragmentActivity: FragmentActivity, private val count: Int) :
