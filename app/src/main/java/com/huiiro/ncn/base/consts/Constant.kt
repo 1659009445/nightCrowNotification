@@ -2,9 +2,9 @@ package com.huiiro.ncn.base.consts
 
 object Constant {
 
-    const val VERSION_CODE = 7
+    const val VERSION_CODE = 8
 
-    const val VERSION_NAME = "1.0.7"
+    const val VERSION_NAME = "1.0.8"
 
     const val ID = "id"
 
