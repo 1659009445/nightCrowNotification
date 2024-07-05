@@ -33,7 +33,6 @@ class CrowTokenFragment : BaseViewModelFragment<IndexContentCrowTokenBinding>() 
         binding.list.apply {
             layoutManager = LinearLayoutManager(requireContext())
         }
-
     }
 
     override fun initDatum() {
@@ -44,7 +43,7 @@ class CrowTokenFragment : BaseViewModelFragment<IndexContentCrowTokenBinding>() 
         binding.list.adapter = adapter
 
         lifecycleScope.launch {
-            viewModel.data.collect {
+            viewModel.data.collect { it ->
                 adapter.submitList(it.getData())
             }
         }

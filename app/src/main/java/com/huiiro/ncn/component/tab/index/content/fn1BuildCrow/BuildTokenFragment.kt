@@ -3,9 +3,11 @@ package com.huiiro.ncn.component.tab.index.content.fn1BuildCrow
 import BuildTokenLineChatView
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
@@ -25,6 +27,7 @@ import kotlinx.coroutines.launch
 class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>() {
 
     private lateinit var viewModel: BuildTokenViewModel
+    private lateinit var adapter: BuildTokenHistoryDataAdapter
 
     companion object {
         fun newInstance(categoryId: String? = null): BuildTokenFragment {
@@ -41,11 +44,30 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
     override fun initViewData() {
         super.initViewData()
         binding.swipeRefreshLayout.setOnRefreshListener { refreshData() }
+        binding.list.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+        }
     }
 
     override fun initDatum() {
         super.initDatum()
         writeDataView()
+    }
+
+    override fun initListener() {
+        super.initListener()
+        binding.buttonToTop.setOnClickListener {
+            binding.scrollView.smoothScrollTo(0, 0)
+        }
+
+        binding.scrollView.viewTreeObserver.addOnScrollChangedListener {
+            val scrollY = binding.scrollView.scrollY
+            if (scrollY > 0) {
+                binding.buttonToTop.visibility = View.VISIBLE
+            } else {
+                binding.buttonToTop.visibility = View.GONE
+            }
+        }
     }
 
     private fun refreshData() {
@@ -124,9 +146,6 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                     for ((index, detail) in dayHourDetails.withIndex()) {
                         detail.p?.let { price ->
                             lineEntries.add(Entry(index.toFloat(), price.toFloat()))
-                            //use regex
-                            //val timeWithoutSeconds = detail.time?.replace(Regex(":\\d{2}$"), "") ?: ""
-                            //labels.add(timeWithoutSeconds)
                             labels.add(detail.time?.substring(0, 5) ?: "")
 
                         }
@@ -157,6 +176,7 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 lineXAxis.position = XAxis.XAxisPosition.BOTTOM
                 lineXAxis.granularity = 1f
                 lineXAxis.isGranularityEnabled = true
+                lineXAxis.setDrawGridLines(false)
 
                 val lineCharMarkerView = BuildTokenLineChatView(
                     requireContext(),
@@ -165,6 +185,8 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 )
 
                 binding.lineChart.marker = lineCharMarkerView
+                binding.lineChart.axisLeft.setDrawGridLines(false)
+                binding.lineChart.axisRight.isEnabled = true
                 binding.lineChart.invalidate()
 
                 //build bar
@@ -173,6 +195,7 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 barXAxis.position = XAxis.XAxisPosition.BOTTOM
                 barXAxis.granularity = 1f
                 barXAxis.isGranularityEnabled = true
+                barXAxis.setDrawGridLines(false)
 
                 val buildTokenBarChatView = BuildTokenBarChatView(
                     requireContext(),
@@ -182,7 +205,17 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 )
 
                 binding.barChart.marker = buildTokenBarChatView
+                binding.lineChart.axisLeft.setDrawGridLines(false)
+                binding.lineChart.axisRight.isEnabled = true
                 binding.barChart.invalidate()
+
+                //build history data
+                adapter = BuildTokenHistoryDataAdapter()
+                binding.list.adapter = adapter
+
+                val h = it.getData()?.changeHistory
+                adapter.submitList(h)
+
             }
         }
 

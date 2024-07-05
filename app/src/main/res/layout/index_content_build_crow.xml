@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,18 +9,29 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
 
         <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:ignore="DuplicateIds">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_shader_light"
                 android:orientation="vertical">
+
+                <!--更新时间-->
+                <TextView
+                    android:id="@+id/update_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="@string/update_time"
+                    android:textColor="@color/deep_grey"
+                    android:textSize="11sp" />
 
                 <!--L1-->
                 <!--货币游戏内实时价格-->
@@ -260,20 +272,26 @@
                     android:textColor="@color/deep_grey_2"
                     android:textSize="14sp" />
 
-                <!--更新时间-->
-                <TextView
-                    android:id="@+id/update_time"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:gravity="center"
-                    android:text="@string/update_time"
-                    android:textColor="@color/deep_grey"
-                    android:textSize="11sp" />
-
+                    android:layout_height="match_parent"
+                    tools:itemCount="10"
+                    tools:listitem="@layout/component_index_build_token_history_data" />
             </LinearLayout>
 
         </ScrollView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonToTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/image_desc"
+        app:backgroundTint="@color/light_grey"
+        app:srcCompat="@drawable/res_pic_top" />
+</RelativeLayout>

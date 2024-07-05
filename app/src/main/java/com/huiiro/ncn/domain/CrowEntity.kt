@@ -32,7 +32,9 @@ class CrowEntity {
 
     var hourMinPrice: Double? = null
 
-    var dayHourDetails: List<CrowHourDetailEntity> ? = emptyList()
+    var dayHourDetails: List<CrowHourDetailEntity>? = emptyList()
 
-    var dayTradeDetails: List<CrowTradeDetailEntity> ? = emptyList()
+    var dayTradeDetails: List<CrowTradeDetailEntity>? = emptyList()
+
+    var changeHistory: List<CrowPriceChangeHistory>? = emptyList()
 }
