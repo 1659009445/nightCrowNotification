@@ -21,7 +21,7 @@ class AppActivity : BaseViewModelActivity<AppActivityBinding>() {
             R.string.layout_index,
             R.string.layout_notice,
             R.string.layout_more,
-            R.string.layout_my
+            R.string.layout_settings
         )
 
         private val indicatorIcons = intArrayOf(

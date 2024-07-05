@@ -26,12 +26,12 @@
     <string name="layout_index">首页</string>
     <string name="layout_notice">资讯</string>
     <string name="layout_more">更多</string>
-    <string name="layout_my">我的</string>
+    <string name="layout_settings">设置</string>
     <string name="layout_content">内容</string>
     <string name="layout_title_index">鸦币小助手</string>
-    <string name="layout_title_notice">官网咨询</string>
+    <string name="layout_title_notice">官网资讯</string>
     <string name="layout_title_more">更多功能</string>
-    <string name="layout_title_my">个人中心</string>
+    <string name="layout_title_settings">设置管理</string>
     <string name="layout_title_settings_account">账号管理</string>
     <string name="layout_title_settings_basic">基本功能</string>
     <string name="layout_title_settings_advanced">高级功能</string>
@@ -65,7 +65,8 @@
     <string name="hour_crow_price">1小时内实时币价：</string>
     <string name="line_chat_crow">单日币价走势图：</string>
     <string name="bar_chat_crow">单日成交量走势图：</string>
-    <string name="crow_detail_history">历史数据：</string>
+    <string name="crow_detail_history">历史数据（只展示前100条数据）：</string>
+    <string name="wemix_price">WEMIX币价：</string>
 
     <string name="crow_warning_title">来自系统提示：</string>
     <string name="crow_warning_text">检测到游戏内实时币价大于0.75，请合理安排铸币！</string>

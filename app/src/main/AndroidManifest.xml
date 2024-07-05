@@ -68,9 +68,13 @@
         <activity
             android:name=".component.tab.notice.NoticeActivity"
             android:exported="false" />
+        <!--NoticeDetail-->
+        <activity
+            android:name=".component.tab.notice.NoticeDetailActivity"
+            android:exported="false" />
         <!--My-->
         <activity
-            android:name=".component.tab.my.MyActivity"
+            android:name=".component.tab.my.SettingsActivity"
             android:exported="false" />
         <!--Login-->
         <activity

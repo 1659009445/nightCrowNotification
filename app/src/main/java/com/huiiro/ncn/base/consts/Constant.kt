@@ -10,5 +10,7 @@ object Constant {
 
     const val GUIDE_LOGO = "guide_logo"
 
+    const val NOTICE_ID = "notice_id"
+
     const val ACTION_LOGIN: String = "com.huiiro.ncn.base.consts.action_login"
 }

@@ -31,7 +31,7 @@ interface ICrowService {
     suspend fun wemix(): Response<WemixEntity>
 
     @GET(Api.NOTICE_INFO)
-    suspend fun notice(): Response<NoticeEntity>
+    suspend fun notice(): Response<List<NoticeEntity>>
 
     @GET("${Api.NOTICE_DETAIL}{id}")
     suspend fun noticeDetail(@Path("id") id: Int): Response<NoticeDetailEntity>

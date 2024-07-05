@@ -39,7 +39,7 @@ object CrowRepository {
         return crowService.wemix()
     }
 
-    suspend fun notice(): Response<NoticeEntity> {
+    suspend fun notice(): Response<List<NoticeEntity>> {
         return crowService.notice()
     }
 

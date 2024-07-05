@@ -213,12 +213,10 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 adapter = BuildTokenHistoryDataAdapter()
                 binding.list.adapter = adapter
 
-                val h = it.getData()?.changeHistory
-                adapter.submitList(h)
-
+                val histories = it.getData()?.changeHistory?.take(100)
+                adapter.submitList(histories)
             }
         }
-
         viewModel.loadData()
     }
 }

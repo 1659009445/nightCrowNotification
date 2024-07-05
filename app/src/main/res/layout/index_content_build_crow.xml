@@ -276,7 +276,7 @@
                     android:id="@+id/list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:itemCount="10"
+                    tools:itemCount="1"
                     tools:listitem="@layout/component_index_build_token_history_data" />
             </LinearLayout>
 

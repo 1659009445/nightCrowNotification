@@ -10,7 +10,7 @@ import com.huiiro.ncn.base.consts.Constant
 import com.huiiro.ncn.base.fragment.BaseViewModelFragment
 import com.huiiro.ncn.component.splash.SplashUpdateDialogFragment
 import com.huiiro.ncn.core.helper.NotificationHelper
-import com.huiiro.ncn.databinding.MyFragmentBinding
+import com.huiiro.ncn.databinding.SettingsFragmentBinding
 import com.huiiro.ncn.domain.CrowUpdateEntity
 import com.huiiro.ncn.http.repository.CrowRepository
 import kotlinx.coroutines.launch
@@ -18,16 +18,16 @@ import kotlinx.coroutines.launch
 /**
  * 我的界面
  */
-class MyFragment : BaseViewModelFragment<MyFragmentBinding>() {
+class SettingsFragment : BaseViewModelFragment<SettingsFragmentBinding>() {
 
     private lateinit var notificationHelper: NotificationHelper
     private lateinit var updateEntity: CrowUpdateEntity
 
     companion object {
         const val TAG = "MyFragment"
-        fun newInstance(): MyFragment {
+        fun newInstance(): SettingsFragment {
             val args = Bundle()
-            val fragment = MyFragment()
+            val fragment = SettingsFragment()
             fragment.arguments = args
             return fragment
         }

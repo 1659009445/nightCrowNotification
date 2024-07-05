@@ -29,7 +29,7 @@ class DigitalTokenFragment : BaseViewModelFragment<IndexContentDigitalTokenBindi
         viewModel = ViewModelProvider(this)[DigitalTokenViewModel::class.java]
         lifecycleScope.launch {
             viewModel.data.collect {
-
+                binding.price.text = it.getData()?.price.toString()
             }
         }
         viewModel.loadData()
