@@ -30,6 +30,7 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
 
     private lateinit var viewModel: BuildTokenViewModel
     private lateinit var adapter: BuildTokenHistoryDataAdapter
+    private lateinit var adapterWarning: BuildTokenWarningDataAdapter
 
     companion object {
         fun newInstance(categoryId: String? = null): BuildTokenFragment {
@@ -47,6 +48,9 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
         super.initViewData()
         binding.swipeRefreshLayout.setOnRefreshListener { refreshData() }
         binding.list.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+        binding.warningList.apply {
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
@@ -220,11 +224,14 @@ class BuildTokenFragment : BaseViewModelFragment<IndexContentBuildCrowBinding>()
                 binding.lineChart.axisRight.isEnabled = true
                 binding.barChart.invalidate()
 
+                //v 1.0.9
+                adapterWarning = BuildTokenWarningDataAdapter()
+                binding.warningList.adapter = adapterWarning
+                val warningHistory = it.getData()?.warningHistory?.take(10)
+                adapterWarning.submitList(warningHistory)
 
-                //历史数据
                 adapter = BuildTokenHistoryDataAdapter()
                 binding.list.adapter = adapter
-
                 val histories = it.getData()?.changeHistory?.take(100)
                 adapter.submitList(histories)
             }

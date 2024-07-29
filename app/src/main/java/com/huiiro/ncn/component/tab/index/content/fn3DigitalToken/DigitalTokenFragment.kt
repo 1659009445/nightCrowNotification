@@ -71,7 +71,7 @@ class DigitalTokenFragment : BaseViewModelFragment<IndexContentDigitalTokenBindi
 
                 //price
                 binding.price.text = it.getData()?.price?.let {
-                    FormatUtils.formatDouble(it, 12)
+                   "$ " + FormatUtils.formatDouble(it, 12)
                 }
 
                 //hour

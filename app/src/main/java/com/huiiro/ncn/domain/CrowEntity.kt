@@ -37,4 +37,6 @@ class CrowEntity {
     var dayTradeDetails: List<CrowTradeDetailEntity>? = emptyList()
 
     var changeHistory: List<CrowPriceChangeHistory>? = emptyList()
+
+    var warningHistory: List<CrowWarningHistoryEntity>? = emptyList()
 }

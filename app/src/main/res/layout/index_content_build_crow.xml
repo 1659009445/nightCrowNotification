@@ -263,7 +263,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="280dp" />
 
+                <!--v 1.0.9 new add history warning data-->
                 <!--L6-->
+                <!--历史警告数据 default val 0.75 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/crow_warning_history"
+                    android:textColor="@color/deep_grey_2"
+                    android:textSize="14sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/warningList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/component_index_build_token_warning_data" />
+
+                <!--L7-->
                 <!--历史数据-->
                 <TextView
                     android:layout_width="match_parent"

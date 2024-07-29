@@ -18,6 +18,13 @@ object Api {
     const val CROW_WARNING = "crow/api/$VERSION/warning"
 
     /**
+     * crow warning history
+     *
+     * @since v 1.0.9
+     */
+    const val CROW_WARNING_HISTORY = "crow/api/$VERSION/warning/history"
+
+    /**
      * crow info
      */
     const val CROW_INFO = "crow/api/$VERSION/crow"

@@ -3,6 +3,7 @@ package com.huiiro.ncn.http.service
 import com.huiiro.ncn.domain.CrowEntity
 import com.huiiro.ncn.domain.CrowUpdateEntity
 import com.huiiro.ncn.domain.CrowWarningEntity
+import com.huiiro.ncn.domain.CrowWarningHistoryEntity
 import com.huiiro.ncn.domain.NoticeDetailEntity
 import com.huiiro.ncn.domain.NoticeEntity
 import com.huiiro.ncn.domain.TokenEntity
@@ -20,6 +21,9 @@ interface ICrowService {
 
     @GET(Api.CROW_WARNING)
     suspend fun crowWarning(): Response<CrowWarningEntity>
+
+    @GET(Api.CROW_WARNING_HISTORY)
+    suspend fun crowWarningHistory(): Response<CrowWarningHistoryEntity>
 
     @GET(Api.CROW_INFO)
     suspend fun crow(): Response<CrowEntity>

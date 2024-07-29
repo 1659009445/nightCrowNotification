@@ -3,6 +3,7 @@ package com.huiiro.ncn.http.repository
 import com.huiiro.ncn.domain.CrowEntity
 import com.huiiro.ncn.domain.CrowUpdateEntity
 import com.huiiro.ncn.domain.CrowWarningEntity
+import com.huiiro.ncn.domain.CrowWarningHistoryEntity
 import com.huiiro.ncn.domain.NoticeDetailEntity
 import com.huiiro.ncn.domain.NoticeEntity
 import com.huiiro.ncn.domain.TokenEntity
@@ -25,6 +26,10 @@ object CrowRepository {
 
     suspend fun crowWarning(): Response<CrowWarningEntity> {
         return crowService.crowWarning()
+    }
+
+    suspend fun crowWarningHistory(): Response<CrowWarningHistoryEntity> {
+        return crowService.crowWarningHistory()
     }
 
     suspend fun crow(): Response<CrowEntity> {

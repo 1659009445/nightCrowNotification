@@ -7,4 +7,6 @@ class MoreEntity {
     var image: String? = null
 
     var action: String? = null
+
+    var desc: String? = null
 }

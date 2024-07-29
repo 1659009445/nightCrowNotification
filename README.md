@@ -4,6 +4,12 @@
 
 * require android min sdk 31(Android 12)
 
+### v1.0.9
+
+* fix known bug
+* add more guide
+* add history build tokens data
+
 ### v1.0.8
 
 * fix display issues

@@ -46,6 +46,7 @@ class MoreAdapter : BaseQuickAdapter<MoreEntity, MoreAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bindData(moreEntity: MoreEntity) {
             binding.noticeTitle.text = moreEntity.title
+            binding.noticeDesc.text = moreEntity.desc
             ImageUtils.showImage(binding.noticeImage, moreEntity.image)
         }
     }

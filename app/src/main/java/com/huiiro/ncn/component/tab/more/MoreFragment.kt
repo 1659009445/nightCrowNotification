@@ -40,9 +40,28 @@ class MoreFragment : BaseViewModelFragment<MoreFragmentBinding>() {
 
         val moreItems = listOf(
             MoreEntity().apply {
-                title = "快速链接：Huiiro Guide"
+                title = "Huiiro"
                 image = ""
                 action = "https://www.huiiro.com/tool/common/guide"
+                desc = "Huiiro Guide"
+            },
+            MoreEntity().apply {
+                title = "NightCrow"
+                image = ""
+                action = "https://www.nightcrows.com/zh-Hans?wmsso_sign=check"
+                desc = "夜鸦官网"
+            },
+            MoreEntity().apply {
+                title = "wemix"
+                image = ""
+                action = "https://wemixplay.com/en/tokens"
+                desc = "Wemix官网"
+            },
+            MoreEntity().apply {
+                title = "pnix"
+                image = ""
+                action = "https://pnix.exchange/nightcrows/trade/MORION-CROW"
+                desc = "pnix官网"
             }
         )
 

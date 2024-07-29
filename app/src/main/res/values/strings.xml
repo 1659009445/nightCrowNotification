@@ -1,6 +1,6 @@
 <resources>
     <string name="test">test content 1 2 3 @ $ # ! ?</string>
-
+    <string name="empty"> </string>
     <string name="app_name">NightCrowNotification</string>
     <string name="image_desc">This is a description for a picture</string>
     <string name="copy_right">Copyright © 2023 Huiiro. All Rights Reserved</string>
@@ -71,6 +71,7 @@
     <string name="line_chat_crow">单日币价走势图：</string>
     <string name="bar_chat_crow">单日成交量走势图：</string>
     <string name="crow_detail_history">历史数据（只展示前100条数据）：</string>
+    <string name="crow_warning_history">历史可成交数据（只展示前10条数据）：</string>
     <string name="wemix_price">WEMIX币价：</string>
     <string name="wemix_volume">持有数量：</string>
     <string name="wemix_volume_change">持有变动：</string>
